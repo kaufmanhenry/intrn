@@ -1,0 +1,29 @@
+{
+  "name": "intrn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hcjk/intrn.git"
+  },
+  "author": "Henry Kaufman <henry@kaufman.io> (http://kaufman.io)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hcjk/intrn/issues"
+  },
+  "homepage": "https://github.com/hcjk/intrn#readme",
+  "dependencies": {
+    "async": "2.1.4",
+    "bcrypt": "1.0.2",
+    "body-parser": "1.16.0",
+    "express": "4.14.0",
+    "jsonwebtoken": "7.2.1",
+    "mongoose": "4.7.7",
+    "passport": "0.3.2"
+  }
+}

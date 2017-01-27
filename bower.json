@@ -1,0 +1,26 @@
+{
+  "name": "intrn",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Henry Kaufman <henry@kaufman.io> (http://kaufman.io)"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/hcjk/intrn",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-route": "^1.6.1",
+    "angular-resource": "^1.6.1",
+    "angular-cookies": "^1.6.1",
+    "bootstrap": "^3.3.7",
+    "angular-bootstrap": "^2.4.0"
+  }
+}
