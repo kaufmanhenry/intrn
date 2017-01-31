@@ -20,12 +20,7 @@ appRequire('async');
 appRequire('bcrypt');
 appRequire('jwt', 'jsonwebtoken');
 appRequire('mongoose');
-appRequire('mongoose');
-appRequire('passport');
 appRequire('extend');
-appRequire('request');
-appRequire('passport-google-oauth');
-appRequire('session', 'express-session');
 
 var config = appRequire('config', './config');
 
