@@ -21,6 +21,7 @@ appRequire('bcrypt');
 appRequire('jwt', 'jsonwebtoken');
 appRequire('mongoose');
 appRequire('extend');
+appRequire('request');
 
 var config = appRequire('config', './config');
 
