@@ -1,4 +1,11 @@
 angular.module('intrn')
-    .controller('Nav', ['$scope', function ($scope) {
+    .controller('Nav', ['$scope', '$location', 'Auth', function ($scope, $location, Auth) {
+        $scope.$on('Authentication', function (event, params) {
+            $scope.user = params.user;
+        });
 
+        $scope.logout = function () {
+            Auth.logout();
+            $location.path('/');
+        };
     }]);

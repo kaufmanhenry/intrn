@@ -1,1 +1,1 @@
-angular.module('intrn', ['ngRoute', 'ngResource', 'ngCookies', 'ui.bootstrap']);
+angular.module('intrn', ['ngRoute', 'ngResource', 'ngCookies', 'ui.bootstrap', 'satellizer', 'angular-jwt']);

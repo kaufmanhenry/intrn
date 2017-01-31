@@ -12,31 +12,22 @@ var appRequire = function (name, requireName) {
     return dep;
 };
 
-var bodyParser;
-try {
-//Require necessary dependencies
-    appRequire('jwt', 'jsonwebtoken');
-    appRequire('mongoose');
-    appRequire('async');
-    appRequire('bcrypt');
-    appRequire('fs');
-    appRequire('passport');
+app.appRequire = appRequire;
 
-    bodyParser = appRequire('body-parser');
-} catch (e) {
-    console.error('Error loading critical dependencies.', e);
-    console.info('Critical dependencies could not be loaded. Ensure that "npm install" has executed without error.');
-    process.exit();
-}
+var bodyParser = appRequire('body-parser');
 
-var config;
-try {
-    config = appRequire('config', './config');
-} catch (e) {
-    console.error('No config.local.js file present in /app.', e);
-    console.info('You have not yet setup your config.local.js file. Make a copy of app/config.default.js and name it config.local.js. Tweak the settings and try launching CustomerPortal again.');
-    process.exit();
-}
+appRequire('async');
+appRequire('bcrypt');
+appRequire('jwt', 'jsonwebtoken');
+appRequire('mongoose');
+appRequire('mongoose');
+appRequire('passport');
+appRequire('extend');
+appRequire('request');
+appRequire('passport-google-oauth');
+appRequire('session', 'express-session');
+
+var config = appRequire('config', './config');
 
 //Middleware
 app.use(bodyParser.json({
@@ -45,6 +36,7 @@ app.use(bodyParser.json({
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+
 //If the config allows cross origin requests, set that up
 if (config.crossOrigin) {
     app.use(function (req, res, next) {
