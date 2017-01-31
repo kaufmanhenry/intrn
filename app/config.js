@@ -1,5 +1,5 @@
 module.exports = {
-    port: 3000,
+    port: 1234,
     db: 'mongodb://localhost/intrnco',
     secret: 's3cret',
     appDirectory: 'app/frontend',
