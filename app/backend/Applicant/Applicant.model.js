@@ -6,7 +6,9 @@ module.exports = function (app) {
 
     return {
         name: 'Applicant',
+        path: '/applicants',
         route: require('./Applicant.route'),
+        populates: ['job'],
         schema: {
             firstName: {
                 type: String,
@@ -29,6 +31,20 @@ module.exports = function (app) {
                 type: String,
                 required: true
             },
+
+            twitter: {
+                type: String,
+                required: false
+            },
+            linkedin: {
+                type: String,
+                required: false
+            },
+            github: {
+                type: String,
+                required: false
+            },
+
             bio: {
                 type: String,
                 required: true

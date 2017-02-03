@@ -21,6 +21,12 @@ angular.module('intrn')
             .when('/users/:user_id', {
                 template: '<intrn-dashboard-view></intrn-dashboard-view>'
             })
+            .when('/companies/:company_id', {
+                template: '<intrn-company-view></intrn-company-view>'
+            })
+            .when('/companies/:company_id/internships/:job_id', {
+                template: '<intrn-internship-view></intrn-internship-view>'
+            })
             .when('/login', {
                 template: '<intrn-login-view></intrn-login-view>'
             })

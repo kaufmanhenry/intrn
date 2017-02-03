@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <small class="text-muted text-uppercase">{{job.jobType.name}}</small>
+        <h3>{{job.title}}</h3>
+        <small class="text-muted">
+            {{job.location.name}} - Posted on {{job.createdAt | date}} by {{job.company.name}} - {{applicants.length}}
+            Applicants
+        </small>
+        <br>
+        <br>
+        <h4>What you’ll do with us</h4>
+        <p>{{job.canDo}}</p>
+        <br>
+        <h4>What you can probably already do</h4>
+        <p>{{job.requirements}}</p>
+        <br>
+        <h4>What you’ll get from us</h4>
+        <p>{{job.perks}}</p>
+    </div>
+    <div class="panel-footer">
+        <div class="pull-right">
+            <a class="btn btn-warning btn-sm" ng-href="#/companies/{{job.company._id}}/internships/{{job._id}}">Edit</a>
+            <button class="btn btn-danger btn-sm" ng-click="removeJob()">Delete</button>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

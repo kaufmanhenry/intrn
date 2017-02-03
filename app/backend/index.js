@@ -5,6 +5,10 @@ module.exports = function (app, callback) {
     var db = app.appRequire('dbProvider', './backend/db')(app);
     app.set('db', db);
 
+    //Enums
+    var enums = app.appRequire('enumsProvider', './backend/Enums/index')(app);
+    app.set('enums', enums);
+
     //Model creator
     var models = app.appRequire('modelsProvider', './backend/models')(app);
     app.set('models', models);
@@ -16,6 +20,8 @@ module.exports = function (app, callback) {
     //Create models
     models.createModel(require('./User/User.model')(app));
     models.createModel(require('./Company/Company.model')(app));
+    models.createModel(require('./Job/Job.model')(app));
+    models.createModel(require('./Applicant/Applicant.model')(app));
 
     //Auth logic
     var AuthLogic = app.appRequire('AuthLogicProvider', './backend/Auth/Auth.logic')(app);
@@ -33,6 +39,7 @@ module.exports = function (app, callback) {
 
     //Other routes
     router.use('/auth', require('./Auth/Auth.route')(app));
+    router.use('/enums', require('./Enums/Enums.route')(app));
 
     return callback(null, router);
 };

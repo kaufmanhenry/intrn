@@ -1,0 +1,106 @@
+<div class="modal-header text-center">
+    <h3 class="modal-title">Application to work at Galvanize</h3>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label">First Name</label>
+                <input type="text"
+                       placeholder="Elon"
+                       class="form-control"
+                       ng-model="applicant.firstName">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label">Last Name</label>
+                <input type="text"
+                       placeholder="Musk"
+                       class="form-control"
+                       ng-model="applicant.lastName">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label">School</label>
+                <select ng-model="applicant.school"
+                        ng-options="school.name for school in schools"
+                        class="form-control"></select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Primary Email</label>
+                <input type="email"
+                       placeholder="elon@tesla.com"
+                       class="form-control"
+                       ng-model="applicant.email">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Phone Number</label>
+                <input type="text"
+                       placeholder="123 456 7890"
+                       class="form-control"
+                       ng-model="applicant.phone">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label">Twitter</label>
+                <input type="text"
+                       placeholder="@elonmusk"
+                       class="form-control"
+                       ng-model="applicant.twitter">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label">LinkedIn</label>
+                <input type="text"
+                       placeholder="elonmusk"
+                       class="form-control"
+                       ng-model="applicant.linkedin">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label">GitHub</label>
+                <input type="text"
+                       placeholder="@Elon_Musk"
+                       class="form-control"
+                       ng-model="applicant.github">
+            </div>
+        </div>
+        <div class="col-md-12">
+            <hr>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-primary btn-block">Upload Challenge</button>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-info btn-block">Upload Résumé</button>
+        </div>
+        <div class="col-md-12">
+            <br>
+            <div class="form-group">
+                <label class="control-label">Say something about yourself!</label>
+                <textarea rows="5"
+                          class="form-control"
+                          ng-model="applicant.bio"
+                          placeholder="I love to make awesome stuff 24/7 and I’m on the rocket team."></textarea>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <small class="text-muted">By clicking “Apply” you are confirming that you have read and accepted our <a
+                    href="#">Privacy Policy</a> and <a href="#">Terms of Service</a>.
+            </small>
+        </div>
+    </div>
+</div>
+<div class="modal-footer text-center">
+    <button class="btn btn-default" ng-click="close()">Maybe Later</button>
+    <button class="btn btn-success" ng-click="apply(applicant)">Apply for This Job</button>
+</div>

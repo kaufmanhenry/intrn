@@ -1,0 +1,116 @@
+<h2>{{internship._id ? 'Update' : 'Create'}} a job posting</h2>
+<br><br>
+<form name="internshipForm">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Title of Position</label>
+                        <input type="text" class="form-control" ng-model="internship.title" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Industry of Company</label>
+                        <span class="pull-right glyphicon glyphicon-question-sign"
+                              uib-tooltip="Your posting will show up like “[Position] for [Industry of Company]” like  “Accounting Intern for Finance Startup.” Choose a general industry that makes the most sense for the posting."></span>
+                        <input type="text" class="form-control" ng-model="internship.industry" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Company Name</label>
+                        <input type="text" class="form-control" ng-model="internship.companyName" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Company Website</label>
+                        <input type="url" class="form-control" ng-model="internship.companyWebsite" required>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label">What the candidate will do with you</label>
+                        <span class="pull-right glyphicon glyphicon-question-sign"
+                              uib-tooltip="This is a list that will describe what the candidate will expect to be doing, their tasks, some of your goals, and anything else that may convince a candidate that their skills are relevant for this role."></span>
+                        <textarea rows="6" class="form-control" ng-model="internship.canDo" required></textarea>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label">What the candidate can probably already do</label>
+                        <span class="pull-right glyphicon glyphicon-question-sign"
+                              uib-tooltip="A short list of skills, languages, programs, and tools the candidate should be partially or completely familiar with in order to jump into this role."></span>
+                        <textarea rows="3" class="form-control" ng-model="internship.requirements" required></textarea>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label">Perks, incentives, and compensation that the candidate can
+                            expect</label>
+                        <span class="pull-right glyphicon glyphicon-question-sign"
+                              uib-tooltip="A list of what makes your company an awesome place to work for, whether it’s immediate or long-term."></span>
+                        <textarea rows="4" class="form-control" ng-model="internship.perks" required></textarea>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p class="text-muted text-center">Every posting is only up for 90 days, so be sure to make sure the
+                challenges can be
+                completed within that time.</p>
+        </div>
+        <div class="col-md-4">
+            <h3 class="text-center">Select Your Filter Criteria</h3>
+            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, debitis doloribus fugit
+                in iusto qui
+                voluptates! Accusantium architecto aspernatur aut delectus facilis ipsum libero nemo, sint soluta
+                voluptas.
+                Expedita, quasi?</p>
+            <br>
+            <h4>Role</h4>
+            <div class="btn-group">
+                <button class="btn btn-sm btn-default" ng-repeat="role in enums.AllRoles"
+                        ng-class="{'btn-info': role.index === internship.role.index, 'btn-default': role.index !== internship.role.index}"
+                        ng-click="setProperty(role, 'role')">
+                    {{role.name}}
+                </button>
+            </div>
+            <br>
+            <br>
+            <h4>Locations</h4>
+            <div class="btn-group">
+                <button class="btn btn-sm btn-default" ng-repeat="location in enums.AllLocations"
+                        ng-class="{'btn-info': location.index === internship.location.index, 'btn-default': location.index !== internship.location.index}"
+                        ng-click="setProperty(location, 'location')">
+                    {{location.name}}
+                </button>
+            </div>
+            <br>
+            <br>
+            <h4>Job Type</h4>
+            <div class="btn-group">
+                <button class="btn btn-sm btn-default" ng-repeat="jobType in enums.AllJobTypes"
+                        ng-class="{'btn-info': jobType.index === internship.jobType.index, 'btn-default': jobType.index !== internship.jobType.index}"
+                        ng-click="setProperty(jobType, 'jobType')">
+                    {{jobType.name}}
+                </button>
+            </div>
+            <br>
+            <br>
+            <h4>Upload Challenge</h4>
+            <i class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci architecto commodi
+                debitis doloribus
+                explicabo facere impedit maiores modi tenetur unde!</i>
+            <br>
+            <br>
+            <h4>Finalize Posting</h4>
+            <button class="btn btn-primary btn-block">Preview Job Posting</button>
+            <button class="btn btn-success btn-outline btn-block"
+                    ng-disabled="internshipForm.$invalid"
+                    ng-click="saveJob()">{{internship._id ? 'Update' : 'Ready to Publish'}} this Job
+            </button>
+        </div>
+    </div>
+</form>

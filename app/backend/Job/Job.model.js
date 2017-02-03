@@ -6,7 +6,9 @@ module.exports = function (app) {
 
     return {
         name: 'Job',
+        path: '/jobs',
         route: require('./Job.route'),
+        populates: ['company'],
         schema: {
             title: {
                 type: String,

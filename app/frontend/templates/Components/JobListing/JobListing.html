@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <p class="text-primary">{{job.role.name}}</p>
+        <span class="pull-right glyphicon"
+              ng-class="{'glyphicon-chevron-down': !$scope.dropdownIsOpen, 'glyphicon-chevron-up': $scope.dropdownIsOpen}"
+              ng-click="toggleDropdown()"></span>
+        <h3>{{job.title}}</h3>
+        <small class="text-muted">{{job.location.name}} - Posted on {{job.createdAt | date}} by {{job.company.name}} -
+            {{applicants.length}} Applicants
+        </small>
+        <div ng-if="dropdownIsOpen">
+            <br>
+            <h4>What you’ll do with us</h4>
+            <p>{{job.canDo}}</p>
+            <br>
+            <h4>What you can probably already do</h4>
+            <p>{{job.requirements}}</p>
+            <br>
+            <h4>What you’ll get from us</h4>
+            <p>{{job.perks}}</p>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <div class="pull-right">
+            <a class="btn btn-sm btn-info" ng-href="#">Download Challenge</a>
+            <button class="btn btn-sm btn-primary" ng-click="applyForJob()">Apply for this job</button>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

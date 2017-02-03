@@ -1,2 +1,32 @@
 <h1>Hey, {{user.name}}.</h1>
 <p>Your email is {{user.email}}.</p>
+<br><br>
+<h2>Companies</h2>
+<div class="row">
+    <div class="col-md-4" ng-repeat="company in companies">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{company.name}}</h3>
+            </div>
+            <div class="panel-body">
+                <a ng-href="#/companies/{{company._id}}">View hiring dashboard</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">New Company</h3>
+            </div>
+            <form name="newCompanyForm">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="control-label">Company Name</label>
+                        <input type="text" ng-model="newCompany.name" class="form-control" required>
+                    </div>
+                    <button class="btn btn-success btn-block" ng-click="createCompany(newCompany)" ng-disabled="newCompanyForm.$invalid">Create Company</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

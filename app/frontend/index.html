@@ -7,7 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>intrn</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Assistant:300,400,600,700" rel="stylesheet">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/sass.build.css">
 </head>
 <body ng-controller="Nav">
 <intrn-nav-component></intrn-nav-component>
@@ -16,7 +18,10 @@
 <script src="bower_components/angular-route/angular-route.min.js"></script>
 <script src="bower_components/angular-resource/angular-resource.min.js"></script>
 <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+
 <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
 <script src="bower_components/satellizer/dist/satellizer.min.js"></script>
 <script src="bower_components/angular-jwt/dist/angular-jwt.min.js"></script>
 
@@ -28,12 +33,21 @@
 <script src="js/Auth.js"></script>
 
 <script src="js/services/User.service.js"></script>
+<script src="js/services/Company.service.js"></script>
+<script src="js/services/Job.service.js"></script>
+<script src="js/services/Applicant.service.js"></script>
+<script src="js/services/Enums.service.js"></script>
 <script src="js/services/Error.service.js"></script>
 
 <script src="templates/Components/Nav/Nav.component.js"></script>
+<script src="templates/Components/AdminJob/AdminJob.component.js"></script>
+<script src="templates/Components/JobListing/JobListing.component.js"></script>
+<script src="templates/Components/ApplyForJobModal/ApplyForJobModal.component.js"></script>
 
 <script src="templates/Views/Home/Home.view.js"></script>
 <script src="templates/Views/Login/Login.view.js"></script>
 <script src="templates/Views/Dashboard/Dashboard.view.js"></script>
+<script src="templates/Views/Company/Company.view.js"></script>
+<script src="templates/Views/Internship/Internship.view.js"></script>
 </body>
 </html>

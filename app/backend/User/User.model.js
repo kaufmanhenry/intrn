@@ -21,11 +21,7 @@ module.exports = function (app) {
             accessToken: {
                 type: String,
                 required: true
-            },
-            companies: [{
-                type: ObjectId,
-                ref: 'Company'
-            }]
+            }
         }
     };
 };

@@ -1,4 +1,4 @@
-module.exports = function(app) {
+module.exports = function (app) {
     var async = app.get('async');
 
     /**
@@ -7,7 +7,7 @@ module.exports = function(app) {
      * @param  {Function} callback - A function to run the callback on.
      * @return {Function} - A function that contains the data.
      */
-    var noop = function(a, callback) {
+    var noop = function (a, callback) {
         return callback(null, a);
     };
 
@@ -19,7 +19,7 @@ module.exports = function(app) {
      * @param  {Function} callback - A function to run the callback on.
      * @return {Function} - A function that contains the data.
      */
-    var nooop = function(a, b, callback) {
+    var nooop = function (a, b, callback) {
         return callback(null, a);
     };
 
@@ -33,12 +33,12 @@ module.exports = function(app) {
      * @param  {Function} queryMiddleware - Middleware to run  on the query.
      * @param  {Function} middleware - Middleware to run after running the operation.
      */
-    endpoint.read = function(Model, populates, queryMiddleware, middleware) {
+    endpoint.read = function (Model, populates, queryMiddleware, middleware) {
         if (!middleware) middleware = noop;
 
-        return function(req, res) {
+        return function (req, res) {
             async.waterfall([
-                function(callback) {
+                function (callback) {
                     // Build the query
                     var query = undefined;
 
@@ -58,7 +58,7 @@ module.exports = function(app) {
                         //Create array if populates are not an array
                         if (!Array.isArray(populates)) populates = [populates];
                         //Loop through each populate
-                        populates.forEach(function(p) {
+                        populates.forEach(function (p) {
                             //Populate the query
                             q.populate(p);
                         });
@@ -70,11 +70,11 @@ module.exports = function(app) {
                     // Run the query
                     return q.exec(callback);
                 },
-                function(data, callback) {
+                function (data, callback) {
                     // Run middleware on the object
                     middleware(data, callback);
                 },
-                function(items, callback) {
+                function (items, callback) {
 
                     //If nothing was found, return a 404
                     if (!items) {
@@ -103,7 +103,7 @@ module.exports = function(app) {
                     //Return all items found
                     return callback(null, items);
                 }
-            ], function(err, result) {
+            ], function (err, result) {
                 // If error, console.error it and return with the error data
                 if (err) {
                     console.error(err);
@@ -128,7 +128,7 @@ module.exports = function(app) {
         //If populates is not an array, make an array out of it
         if (!Array.isArray(populates)) populates = [populates];
         //Loop through each populate
-        populates.forEach(function(p) {
+        populates.forEach(function (p) {
             //Temporary store the data for the body
             var ps = body[p];
             //If ps exists and it is an array
@@ -136,7 +136,7 @@ module.exports = function(app) {
                 //Reset the body
                 body[p] = [];
                 //Loop through each element in the populates
-                ps.forEach(function(item) {
+                ps.forEach(function (item) {
                     //Set items of the body to the ID of the item;
                     body[p].push(item._id);
                 });
@@ -154,14 +154,14 @@ module.exports = function(app) {
      * @param  {Function} middleware - Middelware to run on a function.
      * @param  {Function} outputMiddleware - Output middleware to run after the model is created.
      */
-    endpoint.create = function(Model, populates, middleware, outputMiddleware) {
+    endpoint.create = function (Model, populates, middleware, outputMiddleware) {
         // Setup defaults if they do not exist
         if (!middleware) middleware = noop;
         if (!outputMiddleware) outputMiddleware = nooop;
 
-        return function(req, res) {
+        return function (req, res) {
             async.waterfall([
-                function(callback) {
+                function (callback) {
                     // If population parameters exist
                     var d = !req.query.depopulate || req.query.depopulate === true || req.query.depopulate == 'true';
                     if (d && populates) {
@@ -171,26 +171,26 @@ module.exports = function(app) {
 
                     return callback(null);
                 },
-                function(callback) {
+                function (callback) {
                     // Run the middleware on the body
                     return middleware(req.body, callback);
                 },
-                function(result, callback) {
+                function (result, callback) {
                     // Create a new model
                     var n = new Model(result);
 
                     // Save that model
-                    n.save(function(err, result) {
+                    n.save(function (err, result) {
                         if (err) return callback(err);
 
                         return callback(null, result);
                     });
                 },
-                function(result, callback) {
+                function (result, callback) {
                     // Run output middleware on the result
                     return outputMiddleware(result, {}, callback);
                 }
-            ], function(err, result) {
+            ], function (err, result) {
                 // If error, console.error it and return with the error data
                 if (err) {
                     console.error(err);
@@ -212,14 +212,14 @@ module.exports = function(app) {
      * @param  {Function} middleware - Middelware to run on a function.
      * @param  {Function} outputMiddleware - Output middleware to run after the model is updated.
      */
-    endpoint.update = function(Model, populates, middleware, outputMiddleware) {
+    endpoint.update = function (Model, populates, middleware, outputMiddleware) {
         // Setup defaults if they do not exist
         if (!middleware) middleware = noop;
         if (!outputMiddleware) outputMiddleware = nooop;
 
-        return function(req, res) {
+        return function (req, res) {
             async.waterfall([
-                function(callback) {
+                function (callback) {
                     // If depopulation parameters exist
                     var d = !req.query.depopulate || req.query.depopulate === true || req.query.depopulate == 'true';
                     if (d && populates) {
@@ -228,7 +228,7 @@ module.exports = function(app) {
                     }
                     return callback(null);
                 },
-                function(callback) {
+                function (callback) {
                     // Create a new query
                     var q = Model.findOne({
                         _id: req.params.id
@@ -236,7 +236,7 @@ module.exports = function(app) {
 
                     //Populate the model if applicable
                     if (populates) {
-                        populates.forEach(function(p) {
+                        populates.forEach(function (p) {
                             q.populate(p);
                         });
                     }
@@ -244,27 +244,32 @@ module.exports = function(app) {
                     // Run a query
                     return q.exec(callback);
                 },
-                function(a, callback) {
+                function (a, callback) {
                     // Run middleware on the found object
-                    return middleware(a, callback);
+                    return middleware(req.body, function (err, result) {
+                        if (err) return callback(err);
+
+                        return callback(null, result, a);
+                    });
                 },
-                function(result, callback) {
+                function (result, old, callback) {
                     //Find an object and update it
                     Model.findOneAndUpdate({
                         _id: req.params.id
                     }, result, {
-                        runValidators: true
-                    }, function(err, a) {
+                        runValidators: true,
+                        new: true
+                    }, function (err, a) {
                         if (err) return callback(err);
 
-                        return callback(null, a, result);
+                        return callback(null, a, old);
                     });
                 },
-                function(result, old, callback) {
+                function (result, old, callback) {
                     // Run output middleware on the result
                     return outputMiddleware(result, old, callback);
                 }
-            ], function(err, result) {
+            ], function (err, result) {
                 // If error, console.error it and return with the error data
                 if (err) {
                     console.error(err);
@@ -285,19 +290,19 @@ module.exports = function(app) {
      * @param  {Object} Model - A model to make a deletion from.
      * @param  {Function} deleteMiddleware - Deletion middleware to be used.
      */
-    endpoint.delete = function(Model, deleteMiddleware) {
+    endpoint.delete = function (Model, deleteMiddleware) {
         // Setup delete middleware if it does not exist
         if (!deleteMiddleware) deleteMiddleware = noop;
 
-        return function(req, res) {
+        return function (req, res) {
             async.waterfall([
-                function(callback) {
+                function (callback) {
                     // Find an object to delete
                     Model.findOne({
                         _id: req.params.id
                     }, callback);
                 },
-                function(result, callback) {
+                function (result, callback) {
                     //If there was not a result, return a 404
                     if (!result) {
                         return callback({
@@ -309,11 +314,11 @@ module.exports = function(app) {
                     // Run deleteMiddleware on the result
                     return deleteMiddleware(result, callback);
                 },
-                function(result, callback) {
+                function (result, callback) {
                     // Remove the result from the DB
                     return result.remove(callback);
                 }
-            ], function(err) {
+            ], function (err) {
                 // If error, console.error it and return with the error data
                 if (err) {
                     console.error(err);
@@ -338,11 +343,12 @@ module.exports = function(app) {
      * @param {Function} queryMiddleware - Middleware to be used before a query executes.
      * @param {Function} middleware - Middleware to be used after the query executes.
      */
-    endpoint.readChildren = function(Model, queryBuilder, populates, queryMiddleware, middleware) {
+    endpoint.readChildren = function (Model, queryBuilder, populates, queryMiddleware, middleware) {
         // Setup middleware if it does not exist
         if (!middleware) middleware = noop;
         //If there is no queryMiddleware, set the queryMiddleware to an empty function
-        if (!queryMiddleware) queryMiddleware = function() {};
+        if (!queryMiddleware) queryMiddleware = function () {
+        };
 
         //If the queryBuilder is not an array, create an array out of it
         if (!Array.isArray(queryBuilder)) {
@@ -352,12 +358,12 @@ module.exports = function(app) {
             }];
         }
 
-        return function(req, res) {
+        return function (req, res) {
             async.waterfall([
-                function(callback) {
+                function (callback) {
                     var query = {};
                     //Loop through each item in the queryBuilder
-                    queryBuilder.forEach(function(property) {
+                    queryBuilder.forEach(function (property) {
                         //Find params for each property
                         var a = req.params[property.param];
                         //Build query if the property params exist
@@ -373,7 +379,7 @@ module.exports = function(app) {
                         //Create array if populates are not an array
                         if (!Array.isArray(populates)) populates = [populates];
                         //Loop through each populate
-                        populates.forEach(function(p) {
+                        populates.forEach(function (p) {
                             //Populate the query
                             q.populate(p);
                         });
@@ -387,11 +393,11 @@ module.exports = function(app) {
                     // Execute the query
                     return q.exec(callback);
                 },
-                function(result, callback) {
+                function (result, callback) {
                     // Run middleware on the result
                     return middleware(result, callback);
                 },
-                function(result, callback) {
+                function (result, callback) {
                     if (req.params._id) {
                         //Return a 404 if no items are found
                         if (result.length < 1) return callback({
@@ -409,7 +415,7 @@ module.exports = function(app) {
                     //Return all items found
                     return callback(null, result);
                 }
-            ], function(err, result) {
+            ], function (err, result) {
                 // If error, console.error it and return with the error data
                 if (err) {
                     console.error(err);

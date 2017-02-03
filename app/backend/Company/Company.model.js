@@ -6,12 +6,16 @@ module.exports = function (app) {
         name: 'Company',
         path: '/companies',
         route: require('./Company.route'),
-        populates: [],
+        populates: ['users'],
         schema: {
             name: {
                 type: String,
                 required: true
-            }
+            },
+            users: [{
+                type: ObjectId,
+                ref: 'User'
+            }]
         }
     };
 };
