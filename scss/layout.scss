@@ -1,0 +1,105 @@
+@import "variables";
+
+.intrn-container {
+  max-width: 1200px;
+  margin: 36px auto;
+}
+
+.intrnBanner {
+  width: 100%;
+  background-color: $white;
+  padding: 60px 0;
+  text-align: center;
+  border-radius: 4px;
+  margin-bottom: 36px;
+  h1 {
+    font-size: 40px;
+    color: $black;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  p {
+    font-size: 20px;
+    color: $black;
+    max-width: 420px;
+    margin: 24px auto 0 auto;
+  }
+}
+
+.form-group {
+  label.control-label {
+    font-weight: 600;
+    color: $darkGray;
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+  .form-control {
+    border: solid 1px $gray;
+    color: $almostBlack;
+    padding: 10px;
+    font-size: 15px;
+    box-shadow: none;
+    &:focus {
+      border-color: $darkGray;
+      outline: none;
+    }
+  }
+}
+
+.intrn-filters {
+  h4 {
+    color: $darkGray;
+    font-size: 15px;
+  }
+  hr {
+    height: 1px;
+    width: 100%;
+    border: none;
+    background-color: $lightGray;
+    margin: 10px 0;
+  }
+}
+
+.intrn-box {
+  padding: 20px;
+  width: 100%;
+  background-color: $white;
+  border: solid 1px $lightGray;
+  border-radius: 4px;
+  .job-type {
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .job-title {
+    font-size: 27px;
+    font-weight: 300;
+    color: $almostBlack;
+  }
+  .meta-stats {
+    font-size: 15px;
+    color: $gray;
+  }
+  .job-description {
+    .job-description-item {
+      h4 {
+        color: $darkGray;
+        font-size: 17px;
+      }
+      p {
+        color: $almostBlack;
+        font-size: 15px;
+      }
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.intrn-help-items {
+  text-align: center;
+  a {
+    color: $darkGray;
+    margin: 0 5px;
+  }
+}

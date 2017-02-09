@@ -2,10 +2,11 @@ angular.module('intrn')
     .directive('intrnAdminJobComponent', function () {
         return {
             scope: {
-                job: '=intrnJobData'
+                job: '=intrnJobData',
+                onChange: '&intrnOnChangeLoad'
             },
             templateUrl: 'templates/Components/AdminJob/AdminJob.html',
-            controller: ['$scope', '$q', 'Job', 'Error', function ($scope, $q, Job, Error) {
+            controller: ['$scope', '$q', '$timeout', 'Job', 'Error', function ($scope, $q, $timeout, Job, Error) {
                 $q.all([
                     Job.get({job_id: $scope.job._id || $scope.job}, function (a) {
                         $scope.job = a;
@@ -19,6 +20,7 @@ angular.module('intrn')
 
                 $scope.removeJob = function () {
                     Job.remove({job_id: $scope.job._id}, function () {
+                        $timeout($scope.onChange());
                     }, Error.handle);
                 };
             }]

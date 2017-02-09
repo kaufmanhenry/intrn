@@ -100,9 +100,11 @@
             <br>
             <br>
             <h4>Upload Challenge</h4>
-            <i class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci architecto commodi
-                debitis doloribus
-                explicabo facere impedit maiores modi tenetur unde!</i>
+            <intrn-file-picker-component chba-on-select="onSelect(file)" chba-on-load="onLoad(uri)"></intrn-file-picker-component>
+            <button class="btn btn-success pull-right"
+                    ng-if="data&&file.name"
+                    ng-click="upload()">Upload
+            </button>
             <br>
             <br>
             <h4>Finalize Posting</h4>

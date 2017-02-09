@@ -1,39 +1,37 @@
-<div class="jumbotron text-center">
-    <h1>Getting an internship at a startup is hard. Here’s an easier way.</h1>
-    <p>Browse available positions, complete a challenge project, receive feedback, and get hired.</p>
-</div>
+<intrn-banner-component intrn-banner-heading-data="Getting an internship at a startup is hard. Here’s an easier way."
+                        intrn-banner-subheading-data="Browse available positions, complete a challenge project, receive feedback, and get hired "></intrn-banner-component>
 <div class="row">
     <div class="col-md-8">
         <intrn-job-listing-component ng-repeat="job in jobs" intrn-job-data="job"></intrn-job-listing-component>
     </div>
     <div class="col-md-4">
-        <h4>Role</h4>
-        <div class="btn-group">
-            <button class="btn btn-sm btn-default" ng-repeat="role in enums.AllRoles"
-                    ng-class="{'btn-info': role.index === internship.role.index, 'btn-default': role.index !== internship.role.index}"
+        <div class="intrn-filters">
+            <h4>Role</h4>
+            <hr>
+            <button class="btn btn-toggle btn-{{role.styleClass}}" ng-repeat="role in enums.AllRoles"
                     ng-click="setFilter(role, 'role')">
                 {{role.name}}
             </button>
-        </div>
-        <br>
-        <br>
-        <h4>Locations</h4>
-        <div class="btn-group">
-            <button class="btn btn-sm btn-default" ng-repeat="location in enums.AllLocations"
+            <br>
+            <br>
+            <h4>Locations</h4>
+            <hr>
+            <button class="btn btn-toggle" ng-repeat="location in enums.AllLocations"
                     ng-class="{'btn-info': location.index === internship.location.index, 'btn-default': location.index !== internship.location.index}"
                     ng-click="setFilter(location, 'location')">
                 {{location.name}}
             </button>
-        </div>
-        <br>
-        <br>
-        <h4>Job Type</h4>
-        <div class="btn-group">
-            <button class="btn btn-sm btn-default" ng-repeat="jobType in enums.AllJobTypes"
+            <br>
+            <br>
+            <h4>Job Type</h4>
+            <hr>
+            <button class="btn btn-toggle" ng-repeat="jobType in enums.AllJobTypes"
                     ng-class="{'btn-info': jobType.index === internship.jobType.index, 'btn-default': jobType.index !== internship.jobType.index}"
                     ng-click="setFilter(jobType, 'jobType')">
                 {{jobType.name}}
             </button>
         </div>
+        <br>
+        <intrn-help-items-component></intrn-help-items-component>
     </div>
 </div>

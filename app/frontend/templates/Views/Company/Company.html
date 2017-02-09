@@ -3,7 +3,7 @@
 <h2>Job Listings</h2>
 <div class="row">
     <div class="col-md-8">
-        <intrn-admin-job-component ng-repeat="job in jobs" intrn-job-data="job"></intrn-admin-job-component>
+        <intrn-admin-job-component ng-repeat="job in jobs" intrn-job-data="job" intrn-on-change-load="load"></intrn-admin-job-component>
     </div>
     <div class="col-md-4">
         <div class="panel panel-default">

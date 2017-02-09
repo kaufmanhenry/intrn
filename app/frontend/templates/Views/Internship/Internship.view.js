@@ -2,8 +2,8 @@ angular.module('intrn')
     .directive('intrnInternshipView', function () {
         return {
             templateUrl: 'templates/Views/Internship/Internship.html',
-            controller: ['$scope', '$q', '$routeParams', '$location', 'Job', 'Enums', 'Error',
-                function ($scope, $q, $routeParams, $location, Job, Enums, Error) {
+            controller: ['$scope', '$q', '$routeParams', '$location', 'Auth', 'Job', 'Blob', 'Enums', 'Error',
+                function ($scope, $q, $routeParams, $location, Auth, Job, Blob, Enums, Error) {
                     $scope.load = function () {
                         var promises = [];
 
@@ -31,6 +31,15 @@ angular.module('intrn')
                         $scope.internship.company = $routeParams.company_id;
                         Job.save($scope.internship, function (a) {
                             $location.path('/companies/' + $routeParams.company_id + '/internships/' + a._id);
+                        }, Error.handle);
+                    };
+
+                    $scope.upload = function () {
+                        return Blob.uploadBase64Url($scope.data, {
+                            user: Auth.getTokenPayload().user,
+                            filename: $scope.file.name,
+                            job: $scope.internship._id || $scope.internship
+                        }).then(function () {
                         }, Error.handle);
                     };
 

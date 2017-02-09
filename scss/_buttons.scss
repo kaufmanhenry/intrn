@@ -1,0 +1,54 @@
+@import "variables";
+
+.btn {
+  font-weight: 600;
+}
+
+.btn-toggle {
+  margin: 0 10px 10px 0;
+  font-size: 13px;
+  border: solid 1px $lightGray;
+  background-color: $white;
+  border-radius: 2px;
+  color: $darkGray;
+  &:hover {
+    background-color: $white;
+    border-color: $darkGray;
+  }
+}
+
+.btn-design {
+  color: $design;
+  border-color: $design;
+  &.toggled {
+    color: $white;
+    background-color: $design;
+  }
+}
+
+.btn-engineering {
+  color: $engineering;
+  border-color: $engineering;
+  &.toggled {
+    color: $white;
+    background-color: $engineering;
+  }
+}
+
+.btn-business {
+  color: $businessDev;
+  border-color: $businessDev;
+  &.toggled {
+    color: $white;
+    background-color: $businessDev;
+  }
+}
+
+.btn-growth {
+  color: $growth;
+  border-color: $growth;
+  &.toggled {
+    color: $white;
+    background-color: $growth;
+  }
+}

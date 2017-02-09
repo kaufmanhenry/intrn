@@ -1,0 +1,6 @@
+<input type="file" name="file" class="ng-hide" accept="{{accept}}"
+       onchange="angular.element(this).scope().onFileUpdate(this)">
+<button class="btn btn-default"
+        ng-click="clickEvent($event)">
+    {{buttonText||'Select File'}}
+</button>

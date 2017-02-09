@@ -40,6 +40,7 @@ module.exports = function (app, callback) {
     //Other routes
     router.use('/auth', require('./Auth/Auth.route')(app));
     router.use('/enums', require('./Enums/Enums.route')(app));
+    router.use('/blobs', require('./Blob/Blob.route')(app));
 
     return callback(null, router);
 };
