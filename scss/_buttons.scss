@@ -7,14 +7,25 @@
 .btn-toggle {
   margin: 0 10px 10px 0;
   font-size: 13px;
-  border: solid 1px $lightGray;
   background-color: $white;
-  border-radius: 2px;
   color: $darkGray;
+  border-radius: 2px;
   &:hover {
-    background-color: $white;
     border-color: $darkGray;
   }
+  &:not(.toggled) {
+    border: solid 1px $lightGray;
+  }
+  &.toggled {
+    border: solid 1px $darkGray;
+  }
+}
+
+.btn-role-selector {
+  margin: 0 10px 10px 0;
+  font-size: 13px;
+  background-color: $white;
+  border-radius: 2px;
 }
 
 .btn-design {

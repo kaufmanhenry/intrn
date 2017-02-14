@@ -22,8 +22,12 @@
             <p>{{job.perks}}</p>
         </div>
         <div class="pull-right">
-            <a class="btn btn-sm btn-info" ng-href="#">Download Challenge</a>
-            <button class="btn btn-sm btn-primary" ng-click="applyForJob()">Apply for this job</button>
+            <a class="intrn-btn intrn-btn-{{job.role.styleClass}}"
+               ng-href="#">Download Challenge
+            </a>
+            <button class="intrn-btn intrn-btn-{{job.role.styleClass}}"
+                    ng-click="applyForJob()">Apply for this job
+            </button>
         </div>
         <div class="clearfix"></div>
     </div>

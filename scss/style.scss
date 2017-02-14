@@ -16,7 +16,7 @@
 html, body {
   height: 100%;
   width: 100%;
-  font: 100% 'Assistant', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font: 100% / 1.6rem 'Assistant', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background-color: $snow;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -40,4 +40,76 @@ h1, h2, h3, h4, h5, h6 {
 
 .text-growth {
   color: $growth;
+}
+
+.black-text {
+  color: $black;
+}
+
+.almost-black-text {
+  color: $almostBlack;
+}
+
+.gray-text {
+  color: $gray;
+}
+
+.intrn-btn {
+  padding: 8px 15px;
+  border-radius: 25px;
+  text-decoration: none;
+  display: inline-block;
+  border: solid 1px;
+  background-color: $white;
+  margin: 0 5px;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+//Default styles
+.intrn-btn-default {
+  border-color: $gray;
+  color: $gray;
+  &:hover {
+    background-color: $gray;
+    color: $white;
+  }
+}
+
+//Design styles
+.intrn-btn-design {
+  border-color: $design;
+  color: $design;
+  &:hover {
+    background-color: $design;
+    color: $white;
+  }
+}
+
+.intrn-btn-engineering {
+  border-color: $engineering;
+  color: $engineering;
+  &:hover {
+    background-color: $engineering;
+    color: $white;
+  }
+}
+
+.intrn-btn-business {
+  border-color: $businessDev;
+  color: $businessDev;
+  &:hover {
+    background-color: $businessDev;
+    color: $white;
+  }
+}
+
+.intrn-btn-growth {
+  border-color: $growth;
+  color: $growth;
+  &:hover {
+    background-color: $growth;
+    color: $white;
+  }
 }
