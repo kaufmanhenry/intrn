@@ -32,7 +32,6 @@ angular.module('intrn')
                 };
 
                 $scope.filterJobs = function () {
-                    console.log($scope.filters);
                     $scope.filteredJobs = $scope.jobs.filter(function (a) {
                         if ($scope.filters.roleFilters.length > 0) {
                             if ($scope.filters.roleFilters.indexOf(a.role.name) < 0) return;
