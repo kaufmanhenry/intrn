@@ -54,6 +54,10 @@ h1, h2, h3, h4, h5, h6 {
   color: $gray;
 }
 
+.dark-gray-text {
+  color: $darkGray;
+}
+
 .intrn-btn {
   padding: 8px 15px;
   border-radius: 25px;
@@ -112,4 +116,8 @@ h1, h2, h3, h4, h5, h6 {
     background-color: $growth;
     color: $white;
   }
+}
+
+.font-semi-bold {
+  font-weight: 600;
 }

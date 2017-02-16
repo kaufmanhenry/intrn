@@ -3,21 +3,37 @@ angular.module('intrn')
         return {
             scope: {
                 close: '&intrnClose',
-                jobId: '@intrnJobIdData'
+                jobId: '@intrnJobIdData',
+                applicantId: '@intrnApplicantIdData'
             },
             templateUrl: 'templates/Components/ApplyForJobModal/ApplyForJobModal.html',
             controller: ['$scope', '$q', 'Enums', 'Applicant', 'Error', function ($scope, $q, Enums, Applicant, Error) {
-                $q.all([
+                var promises = [];
+
+                promises.push(
                     Enums.get(function (a) {
                         $scope.enums = a;
                         $scope.schools = a.AllSchools;
                     }).$promise
-                ]).then(function () {
+                );
+
+                if ($scope.applicantId) {
+                    promises.push(
+                        Applicant.get({applicant_id: $scope.applicantId}, function (a) {
+                            console.log(a);
+                            $scope.applicant = a;
+                        }).$promise
+                    );
+                }
+
+                $q.all(promises).then(function () {
+                    //If the applicant does not exist, create one
+                    if (!$scope.applicant) $scope.applicant = {job: $scope.jobId};
                 }, Error.handle);
 
-                $scope.apply = function (applicant) {
-                    applicant.job = $scope.jobId;
-                    Applicant.save(applicant, function () {
+
+                $scope.apply = function () {
+                    Applicant.save($scope.applicant, function () {
                         $scope.close();
                     }, Error.handle);
                 };

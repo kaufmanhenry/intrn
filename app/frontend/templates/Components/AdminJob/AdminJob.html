@@ -6,6 +6,20 @@
     </p>
     <div class="job-description">
         <hr>
+        <div class="table-responsive">
+            <div class="applicants-table-box">
+                <table class="applicants-table">
+                    <tbody>
+                    <tr ng-repeat="applicant in applicants">
+                        <td class="font-semi-bold dark-gray-text">{{applicant.firstName}} {{applicant.lastName}}</td>
+                        <td class="gray-text">{{applicant.createdAt | date}}</td>
+                        <td><a href ng-click="viewApplication(applicant)">View Application</a></td>
+                        <td><a ng-href="mailto:{{applicant.email}}" class="applicant-contact-link">Contact</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
         <div class="job-description-item">
             <h4>What you’ll do with us</h4>
             <p>{{job.canDo}}</p>

@@ -77,6 +77,22 @@
   color: #737373;
   margin: 0 5px; }
 
+.applicants-table-box {
+  padding: 8px 0;
+  border-top: solid 1px #D5D5D5;
+  border-bottom: solid 1px #D5D5D5;
+  margin-bottom: 15px; }
+
+.applicants-table {
+  width: 100%; }
+  .applicants-table tr {
+    font-size: 15px;
+    padding: 4px 0; }
+    .applicants-table tr:hover {
+      background-color: #F9F9F9; }
+  .applicants-table .applicant-contact-link {
+    color: #44D1A5; }
+
 .intrn-container {
   max-width: 1200px;
   margin: 36px auto; }
@@ -155,6 +171,22 @@
 .intrn-help-items a {
   color: #737373;
   margin: 0 5px; }
+
+.applicants-table-box {
+  padding: 8px 0;
+  border-top: solid 1px #D5D5D5;
+  border-bottom: solid 1px #D5D5D5;
+  margin-bottom: 15px; }
+
+.applicants-table {
+  width: 100%; }
+  .applicants-table tr {
+    font-size: 15px;
+    padding: 4px 0; }
+    .applicants-table tr:hover {
+      background-color: #F9F9F9; }
+  .applicants-table .applicant-contact-link {
+    color: #44D1A5; }
 
 .intrn-nav {
   width: 100%;
@@ -266,6 +298,9 @@ h1, h2, h3, h4, h5, h6 {
 .gray-text {
   color: #9B9B9B; }
 
+.dark-gray-text {
+  color: #737373; }
+
 .intrn-btn {
   padding: 8px 15px;
   border-radius: 25px;
@@ -311,4 +346,7 @@ h1, h2, h3, h4, h5, h6 {
   .intrn-btn-growth:hover {
     background-color: #19AAE5;
     color: #fff; }
+
+.font-semi-bold {
+  font-weight: 600; }
 

@@ -103,3 +103,24 @@
     margin: 0 5px;
   }
 }
+
+.applicants-table-box {
+  padding: 8px 0;
+  border-top: solid 1px $lightGray;
+  border-bottom: solid 1px $lightGray;
+  margin-bottom: 15px;
+}
+
+.applicants-table {
+  width: 100%;
+  tr {
+    font-size: 15px;
+    padding: 4px 0;
+    &:hover {
+      background-color: $snow;
+    }
+  }
+  .applicant-contact-link {
+    color: $green;
+  }
+}

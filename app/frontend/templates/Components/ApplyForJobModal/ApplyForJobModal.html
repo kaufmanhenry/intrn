@@ -25,7 +25,7 @@
             <div class="form-group">
                 <label class="control-label">School</label>
                 <select ng-model="applicant.school"
-                        ng-options="school.name for school in schools"
+                        ng-options="school.name for school in schools track by school.name"
                         class="form-control"></select>
             </div>
         </div>
@@ -101,6 +101,6 @@
     </div>
 </div>
 <div class="modal-footer text-center">
-    <button class="btn btn-default" ng-click="close()">Maybe Later</button>
-    <button class="btn btn-success" ng-click="apply(applicant)">Apply for This Job</button>
+    <button class="btn btn-default" ng-click="close()">{{applicant._id ? 'Close' : 'Maybe Later'}}</button>
+    <button class="btn btn-success" ng-click="apply(applicant)">{{applicant._id ? 'Update' : 'Apply for This Job'}}</button>
 </div>
