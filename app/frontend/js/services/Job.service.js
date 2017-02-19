@@ -7,6 +7,10 @@ angular.module('intrn')
                 method: 'GET',
                 url: API_BASE + 'jobs/:job_id/applicants',
                 isArray: true
+            },
+            addInterest: {
+                method: 'POST',
+                url: API_BASE + 'jobs/:job_id/addInterest'
             }
         });
     }]);

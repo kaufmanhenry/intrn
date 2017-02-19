@@ -63,6 +63,12 @@ module.exports = function (app) {
                 type: Date,
                 required: true,
                 default: Date.now()
+            },
+
+            interest: {
+                type: Number,
+                required: true,
+                default: 0
             }
         }
     };

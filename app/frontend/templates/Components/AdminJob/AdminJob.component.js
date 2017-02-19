@@ -11,6 +11,7 @@ angular.module('intrn')
                 $q.all([
                     Job.get({job_id: $scope.job._id || $scope.job}, function (a) {
                         $scope.job = a;
+                        console.log(a);
                     }).$promise,
                     Job.queryApplicants({job_id: $scope.job._id || $scope.job}, function (a) {
                         $scope.applicants = a;

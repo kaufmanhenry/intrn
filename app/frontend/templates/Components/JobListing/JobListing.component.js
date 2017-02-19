@@ -5,9 +5,12 @@ angular.module('intrn')
                 job: '=intrnJobData'
             },
             templateUrl: 'templates/Components/JobListing/JobListing.html',
-            controller: ['$scope', '$uibModal', function ($scope, $uibModal) {
+            controller: ['$scope', '$uibModal', 'Job', 'Error', function ($scope, $uibModal, Job, Error) {
                 $scope.toggleDropdown = function () {
                     $scope.dropdownIsOpen = !$scope.dropdownIsOpen;
+                    //Add interest for the job
+                    Job.addInterest({job_id: $scope.job._id}, {}, function () {
+                    }, Error.handle);
                 };
 
                 $scope.applyForJob = function () {

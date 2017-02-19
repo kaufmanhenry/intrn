@@ -1,7 +1,7 @@
 angular.module('intrn')
     .constant('API_BASE', '/api/')
     //The time before a post expires
-    .constant('POST_EXPIRATION', .0001)
+    .constant('POST_EXPIRATION', 90)
     .config(['$locationProvider', function ($locationProvider) {
         $locationProvider.hashPrefix('');
     }])

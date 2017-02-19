@@ -4,7 +4,8 @@
 <div class="row">
     <div class="col-md-8">
         <p ng-if="currentJobs.length < 1" class="gray-text">No jobs have been created.</p>
-        <intrn-admin-job-component ng-repeat="job in currentJobs" intrn-job-data="job" intrn-on-change-load="load"></intrn-admin-job-component>
+        <intrn-admin-job-component ng-repeat="job in currentJobs" intrn-job-data="job"
+                                   intrn-on-change-load="load"></intrn-admin-job-component>
         <br>
         <br>
         <div class="intrn-filters">
@@ -12,11 +13,15 @@
                 <a href class="pull-right gray-text" ng-click="deleteOldPosts()">Clear All</a>
             </h4>
             <hr>
-            <intrn-admin-job-component ng-repeat="job in expiredJobs" intrn-job-data="job" intrn-on-change-load="load" intrn-job-expired="true"></intrn-admin-job-component>
+            <intrn-admin-job-component ng-repeat="job in expiredJobs" intrn-job-data="job" intrn-on-change-load="load"
+                                       intrn-job-expired="true"></intrn-admin-job-component>
             <p class="gray-text" ng-if="expiredJobs.length < 1">No jobs have expired yet.</p>
         </div>
     </div>
     <div class="col-md-4">
+        <a ng-href="#/companies/{{company._id}}/internships/new"
+           class="btn btn-block btn-rounded btn-preview-job">Post a new Job</a>
+        <br>
         <div class="text-center">
             <h3 class="almost-black-text">Applications</h3>
             <p class="gray-text">Download candidate profiles and projects</p>
@@ -25,8 +30,6 @@
         <div class="intrn-filters">
             <h4>New</h4>
             <hr>
-
         </div>
-        <a ng-href="#/companies/{{company._id}}/internships/new" class="btn btn-primary">Post a new Job</a>
     </div>
 </div>
