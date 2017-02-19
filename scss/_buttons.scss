@@ -63,3 +63,19 @@
     background-color: $growth;
   }
 }
+
+.btn-create-job {
+  border: solid 1px $green;
+  color: $green;
+  background-color: transparent;
+}
+
+.btn-preview-job {
+  background-color: $blue;
+  color: $white;
+  border: none;
+}
+
+.btn-rounded {
+  border-radius: 20px;
+}

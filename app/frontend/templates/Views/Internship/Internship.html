@@ -70,9 +70,9 @@
             <div class="intrn-filters">
                 <h4>Role</h4>
                 <hr>
-                <button class="btn btn-toggle btn-{{role.styleClass}}"
+                <button class="btn btn-role-selector btn-{{role.styleClass}}"
                         ng-repeat="role in enums.AllRoles"
-                        ng-class="{'btn-active': role.index === internship.role.index, 'btn-default': role.index !== internship.role.index}"
+                        ng-class="{'toggled': role.index === internship.role.index}"
                         ng-click="setProperty(role, 'role')">
                     {{role.name}}
                 </button>
@@ -82,7 +82,7 @@
                 <hr>
                 <button class="btn btn-toggle btn-{{role.styleClass}}"
                         ng-repeat="location in enums.AllLocations"
-                        ng-class="{'btn-active': location.index === internship.location.index, 'btn-default': location.index !== internship.location.index}"
+                        ng-class="{'toggled': location.index === internship.location.index}"
                         ng-click="setProperty(location, 'location')">
                     {{location.name}}
                 </button>
@@ -92,7 +92,7 @@
                 <hr>
                 <button class="btn btn-toggle btn-{{role.styleClass}}"
                         ng-repeat="jobType in enums.AllJobTypes"
-                        ng-class="{'btn-active': jobType.index === internship.jobType.index, 'btn-default': jobType.index !== internship.jobType.index}"
+                        ng-class="{'toggled': jobType.index === internship.jobType.index}"
                         ng-click="setProperty(jobType, 'jobType')">
                     {{jobType.name}}
                 </button>
@@ -112,8 +112,8 @@
                     <span class="pull-right gray-text glyphicon glyphicon-question-sign"
                           uib-tooltip="Submit your posting to the job board. Candidates will be able to see and apply for your posting."></span></h4>
                 <hr>
-                <button class="btn btn-primary btn-block">Preview Job Posting</button>
-                <button class="btn btn-success btn-outline btn-block"
+                <button class="btn btn-primary btn-block btn-preview-job btn-rounded">Preview this Job Posting</button>
+                <button class="btn btn-create-job btn-block btn-rounded"
                         ng-disabled="internshipForm.$invalid"
                         ng-click="saveJob()">{{internship._id ? 'Update' : 'Ready to Publish'}} this Job
                 </button>

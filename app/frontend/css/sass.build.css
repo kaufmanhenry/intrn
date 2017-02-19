@@ -263,6 +263,19 @@
     color: #fff;
     background-color: #19AAE5; }
 
+.btn-create-job {
+  border: solid 1px #44D1A5;
+  color: #44D1A5;
+  background-color: transparent; }
+
+.btn-preview-job {
+  background-color: #19AAE5;
+  color: #fff;
+  border: none; }
+
+.btn-rounded {
+  border-radius: 20px; }
+
 * {
   margin: 0;
   padding: 0;
