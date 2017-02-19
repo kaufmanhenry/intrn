@@ -79,3 +79,31 @@
 .btn-rounded {
   border-radius: 20px;
 }
+
+.btn-remove {
+  border: solid 1px $red;
+  background: transparent;
+  color: $red;
+  &:hover, &:focus {
+    background-color: $red;
+    color: $white;
+  }
+}
+
+.btn-edit {
+  border: solid 1px $blue;
+  color: $blue;
+  &:hover, &:focus {
+    background-color: $blue;
+    color: $white;
+  }
+}
+
+.btn-view-challenge {
+  border: solid 1px $darkGray;
+  color: $darkGray;
+  &:hover, &:focus {
+    background-color: $darkGray;
+    color: $white;
+  }
+}

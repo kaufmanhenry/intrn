@@ -276,6 +276,28 @@
 .btn-rounded {
   border-radius: 20px; }
 
+.btn-remove {
+  border: solid 1px #D97441;
+  background: transparent;
+  color: #D97441; }
+  .btn-remove:hover, .btn-remove:focus {
+    background-color: #D97441;
+    color: #fff; }
+
+.btn-edit {
+  border: solid 1px #19AAE5;
+  color: #19AAE5; }
+  .btn-edit:hover, .btn-edit:focus {
+    background-color: #19AAE5;
+    color: #fff; }
+
+.btn-view-challenge {
+  border: solid 1px #737373;
+  color: #737373; }
+  .btn-view-challenge:hover, .btn-view-challenge:focus {
+    background-color: #737373;
+    color: #fff; }
+
 * {
   margin: 0;
   padding: 0;

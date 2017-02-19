@@ -33,11 +33,11 @@
             <p>{{job.perks}}</p>
         </div>
         <div class="pull-left">
-            <button class="btn btn-danger btn-sm" ng-click="removeJob()">Delete</button>
+            <button class="btn btn-remove btn-rounded" ng-click="removeJob()">Remove</button>
         </div>
         <div class="pull-right">
-            <a class="btn btn-warning btn-sm" ng-href="#/companies/{{job.company._id}}/internships/{{job._id}}">Edit</a>
-            <a class="btn btn-sm btn-info" ng-href="#">View Challenge</a>
+            <a class="btn btn-edit btn-rounded" ng-href="#/companies/{{job.company._id}}/internships/{{job._id}}">Edit</a>
+            <a class="btn btn-view-challenge btn-rounded " ng-href="#">View Challenge</a>
         </div>
         <div class="clearfix"></div>
     </div>
