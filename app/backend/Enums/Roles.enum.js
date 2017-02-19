@@ -1,11 +1,11 @@
 module.exports = {
-    DESIGN: {
-        name: 'Design',
+    DESIGNER: {
+        name: 'Designer',
         styleClass: 'design',
         index: 0
     },
-    ENGINEERING: {
-        name: 'Engineering',
+    ENGINEER: {
+        name: 'Engineer',
         styleClass: 'engineering',
         index: 1
     },
@@ -14,8 +14,8 @@ module.exports = {
         styleClass: 'business',
         index: 2
     },
-    GROWTH: {
-        name: 'Growth',
+    MARKETER: {
+        name: 'Marketer',
         styleClass: 'growth',
         index: 3
     }
