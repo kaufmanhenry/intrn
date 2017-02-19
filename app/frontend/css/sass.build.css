@@ -4,11 +4,14 @@
 
 .intrnBanner {
   width: 100%;
-  background-color: #fff;
   padding: 60px 0;
   text-align: center;
   border-radius: 4px;
-  margin-bottom: 36px; }
+  margin-bottom: 36px;
+  background-image: url(../imgs/hero.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
   .intrnBanner h1 {
     font-size: 40px;
     color: #4A4A4A;
@@ -99,11 +102,14 @@
 
 .intrnBanner {
   width: 100%;
-  background-color: #fff;
   padding: 60px 0;
   text-align: center;
   border-radius: 4px;
-  margin-bottom: 36px; }
+  margin-bottom: 36px;
+  background-image: url(../imgs/hero.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
   .intrnBanner h1 {
     font-size: 40px;
     color: #4A4A4A;

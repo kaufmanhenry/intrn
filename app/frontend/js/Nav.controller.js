@@ -8,4 +8,10 @@ angular.module('intrn')
             Auth.logout();
             $location.path('/');
         };
+
+        $scope.login = function () {
+            Auth.auth(function () {
+                $location.path('/dashboard');
+            });
+        };
     }]);

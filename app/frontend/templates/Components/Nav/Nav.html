@@ -3,7 +3,7 @@
         <!-- Brand and toggle get grouped for better mobile display -->
         <img src="imgs/logo.svg" alt="logo">
         <div class="grow"></div>
-        <a href="#/login" ng-if="!user">Login</a>
+        <a href ng-if="!user" ng-click="login()">Login</a>
         <a hre ng-if="user" ng-click="logout()"f>Logout</a>
     </div>
 </nav>

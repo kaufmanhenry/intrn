@@ -27,9 +27,6 @@ angular.module('intrn')
             .when('/companies/:company_id/internships/:job_id', {
                 template: '<intrn-internship-view></intrn-internship-view>'
             })
-            .when('/login', {
-                template: '<intrn-login-view></intrn-login-view>'
-            })
             .otherwise({
                 redirectTo: '/'
             });
