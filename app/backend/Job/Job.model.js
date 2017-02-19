@@ -53,9 +53,16 @@ module.exports = function (app) {
                 enum: enums.AllJobTypes,
                 required: true
             },
+
             company: {
                 type: ObjectId,
                 ref: 'Company'
+            },
+
+            jobCreatedTime: {
+                type: Date,
+                required: true,
+                default: Date.now()
             }
         }
     };

@@ -267,6 +267,9 @@
   border: solid 1px #44D1A5;
   color: #44D1A5;
   background-color: transparent; }
+  .btn-create-job:hover, .btn-create-job:focus {
+    background-color: #44D1A5;
+    color: #fff; }
 
 .btn-preview-job {
   background-color: #19AAE5;

@@ -3,7 +3,18 @@
 <br>
 <div class="row">
     <div class="col-md-8">
-        <intrn-admin-job-component ng-repeat="job in jobs" intrn-job-data="job" intrn-on-change-load="load"></intrn-admin-job-component>
+        <p ng-if="currentJobs.length < 1" class="gray-text">No jobs have been created.</p>
+        <intrn-admin-job-component ng-repeat="job in currentJobs" intrn-job-data="job" intrn-on-change-load="load"></intrn-admin-job-component>
+        <br>
+        <br>
+        <div class="intrn-filters">
+            <h4>Expired Postings
+                <a href class="pull-right gray-text" ng-click="deleteOldPosts()">Clear All</a>
+            </h4>
+            <hr>
+            <intrn-admin-job-component ng-repeat="job in expiredJobs" intrn-job-data="job" intrn-on-change-load="load" intrn-job-expired="true"></intrn-admin-job-component>
+            <p class="gray-text" ng-if="expiredJobs.length < 1">No jobs have expired yet.</p>
+        </div>
     </div>
     <div class="col-md-4">
         <div class="text-center">

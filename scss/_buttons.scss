@@ -68,6 +68,10 @@
   border: solid 1px $green;
   color: $green;
   background-color: transparent;
+  &:hover, &:focus {
+    background-color: $green;
+    color: $white;
+  }
 }
 
 .btn-preview-job {

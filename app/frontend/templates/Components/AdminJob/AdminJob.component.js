@@ -3,7 +3,8 @@ angular.module('intrn')
         return {
             scope: {
                 job: '=intrnJobData',
-                onChange: '&intrnOnChangeLoad'
+                onChange: '&intrnOnChangeLoad',
+                expired: '@intrnJobExpired'
             },
             templateUrl: 'templates/Components/AdminJob/AdminJob.html',
             controller: ['$scope', '$q', '$timeout', '$uibModal', 'Job', 'Error', function ($scope, $q, $timeout, $uibModal, Job, Error) {
@@ -41,6 +42,15 @@ angular.module('intrn')
                         }],
                         scope: $scope
                     });
+                };
+
+                $scope.relist = function () {
+                    //Update the created At
+                    $scope.job.jobCreatedTime = new Date();
+
+                    Job.save($scope.job, function () {
+                        $timeout($scope.onChange());
+                    }, Error.handle);
                 };
             }]
         };
