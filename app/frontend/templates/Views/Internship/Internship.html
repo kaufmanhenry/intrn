@@ -7,7 +7,11 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Title of Position</label>
-                        <input type="text" class="form-control" ng-model="internship.title" required>
+                        <input type="text"
+                               class="form-control"
+                               ng-model="internship.title"
+                               required
+                               placeholder="Accounting Intern">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -15,19 +19,31 @@
                         <label class="control-label">Industry of Company</label>
                         <span class="pull-right gray-text glyphicon glyphicon-question-sign"
                               uib-tooltip="Your posting will show up like “[Position] for [Industry of Company]” like  “Accounting Intern for Finance Startup.” Choose a general industry that makes the most sense for the posting."></span>
-                        <input type="text" class="form-control" ng-model="internship.industry" required>
+                        <input type="text"
+                               class="form-control"
+                               ng-model="internship.industry"
+                               required
+                               placeholder="Finance">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Company Name</label>
-                        <input type="text" class="form-control" ng-model="internship.companyName" required>
+                        <input type="text"
+                               class="form-control"
+                               ng-model="internship.companyName"
+                               required
+                               placeholder="Galvanize">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Company Website</label>
-                        <input type="url" class="form-control" ng-model="internship.companyWebsite" required>
+                        <input type="url"
+                               class="form-control"
+                               ng-model="internship.companyWebsite"
+                               required
+                               placeholder="http://galvanize.com">
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -35,7 +51,11 @@
                         <label class="control-label">What the candidate will do with you</label>
                         <span class="pull-right gray-text glyphicon glyphicon-question-sign"
                               uib-tooltip="This is a list that will describe what the candidate will expect to be doing, their tasks, some of your goals, and anything else that may convince a candidate that their skills are relevant for this role."></span>
-                        <textarea rows="6" class="form-control" ng-model="internship.canDo" required></textarea>
+                        <textarea rows="6"
+                                  class="form-control"
+                                  ng-model="internship.canDo"
+                                  required
+                                  placeholder="Concept, design, and evolve our visual identity as we scale while keeping the 	system fresh, interesting, and inspiring"></textarea>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -43,7 +63,11 @@
                         <label class="control-label">What the candidate can probably already do</label>
                         <span class="pull-right gray-text glyphicon glyphicon-question-sign"
                               uib-tooltip="A short list of skills, languages, programs, and tools the candidate should be partially or completely familiar with in order to jump into this role."></span>
-                        <textarea rows="3" class="form-control" ng-model="internship.requirements" required></textarea>
+                        <textarea rows="3"
+                                  class="form-control"
+                                  ng-model="internship.requirements"
+                                  required
+                                  placeholder="Sketch, InDesign, Invision, FramerJs, HTML/CSS"></textarea>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -52,7 +76,11 @@
                             expect</label>
                         <span class="pull-right gray-text glyphicon glyphicon-question-sign"
                               uib-tooltip="A list of what makes your company an awesome place to work for, whether it’s immediate or long-term."></span>
-                        <textarea rows="4" class="form-control" ng-model="internship.perks" required></textarea>
+                        <textarea rows="4"
+                                  class="form-control"
+                                  ng-model="internship.perks"
+                                  required
+                                  placeholder="A fully-stocked kitchen with all the good stuff, office dogs to love,  your own desk and hardware, mentorship from anyone about anything, company trips, unlimited vacation, and priority access to our Summer programs."></textarea>
                     </div>
                 </div>
             </div>
@@ -110,7 +138,8 @@
                 <br>
                 <h4>Finalize Posting
                     <span class="pull-right gray-text glyphicon glyphicon-question-sign"
-                          uib-tooltip="Submit your posting to the job board. Candidates will be able to see and apply for your posting."></span></h4>
+                          uib-tooltip="Submit your posting to the job board. Candidates will be able to see and apply for your posting."></span>
+                </h4>
                 <hr>
                 <button class="btn btn-primary btn-block btn-preview-job btn-rounded">Preview this Job Posting</button>
                 <button class="btn btn-create-job btn-block btn-rounded"

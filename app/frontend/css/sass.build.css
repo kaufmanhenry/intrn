@@ -40,6 +40,9 @@
     border-color: #737373;
     outline: none; }
 
+textarea {
+  resize: none; }
+
 .intrn-filters h4 {
   color: #737373;
   font-size: 15px; }
@@ -138,6 +141,9 @@
   .form-group .form-control:focus {
     border-color: #737373;
     outline: none; }
+
+textarea {
+  resize: none; }
 
 .intrn-filters h4 {
   color: #737373;

@@ -50,6 +50,10 @@
   }
 }
 
+textarea {
+  resize: none;
+}
+
 .intrn-filters {
   h4 {
     color: $darkGray;
