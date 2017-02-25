@@ -24,8 +24,9 @@ angular.module('intrn')
                         newCompany.users.push($scope.user._id);
                         Company.save(newCompany, function () {
                             newCompany.name = '';
+                            newCompany.accessCode = '';
                             $scope.load();
-                        }, Error.handle);
+                        });
                     };
                 }]
         };
