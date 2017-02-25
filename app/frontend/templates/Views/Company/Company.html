@@ -4,8 +4,10 @@
 <div class="row">
     <div class="col-md-8">
         <p ng-if="currentJobs.length < 1" class="gray-text">No jobs have been created.</p>
-        <intrn-admin-job-component ng-repeat="job in currentJobs" intrn-job-data="job"
-                                   intrn-on-change-load="load"></intrn-admin-job-component>
+        <intrn-admin-job-component ng-repeat="job in currentJobs"
+                                   intrn-job-data="job"
+                                   intrn-on-change-load="load"
+                                   intrn-select-job="selectJob(job)"></intrn-admin-job-component>
         <br>
         <br>
         <div class="intrn-filters">
@@ -13,7 +15,9 @@
                 <a href class="pull-right gray-text" ng-click="deleteOldPosts()">Clear All</a>
             </h4>
             <hr>
-            <intrn-admin-job-component ng-repeat="job in expiredJobs" intrn-job-data="job" intrn-on-change-load="load"
+            <intrn-admin-job-component ng-repeat="job in expiredJobs"
+                                       intrn-job-data="job"
+                                       intrn-on-change-load="load"
                                        intrn-job-expired="true"></intrn-admin-job-component>
             <p class="gray-text" ng-if="expiredJobs.length < 1">No jobs have expired yet.</p>
         </div>
@@ -22,14 +26,28 @@
         <a ng-href="#/companies/{{company._id}}/internships/new"
            class="btn btn-block btn-rounded btn-preview-job">Post a new Job</a>
         <br>
-        <div class="text-center">
-            <h3 class="almost-black-text">Applications</h3>
-            <p class="gray-text">Download candidate profiles and projects</p>
-        </div>
-        <br>
-        <div class="intrn-filters">
-            <h4>New</h4>
+        <div class="intrn-filters" ng-if="selectedJob">
+            <h4>Job</h4>
             <hr>
+            <div class="stat-box">
+                <div class="stat">
+                    <h1>{{selectedJob.interest}}</h1>
+                    <small>Total Views</small>
+                </div>
+                <div class="stat">
+                    <h1>51</h1>
+                    <small>Interested</small>
+                </div>
+                <div class="stat">
+                    <h1>{{selectedJob.applicants.length}}</h1>
+                    <small>Applied</small>
+                </div>
+            </div>
+        </div>
+        <div class="intrn-filters">
+            <h4>Account Settings</h4>
+            <hr>
+            <button class="btn btn-remove btn-rounded btn-block">Remove All Postings</button>
         </div>
     </div>
 </div>

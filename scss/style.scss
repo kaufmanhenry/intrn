@@ -121,3 +121,25 @@ h1, h2, h3, h4, h5, h6 {
 .font-semi-bold {
   font-weight: 600;
 }
+
+.stat-box {
+  display: flex;
+}
+
+.stat {
+  border: solid 1px $lightGray;
+  background-color: $white;
+  border-radius: 4px;
+  padding: 0 10px 8px 10px;
+  color: $almostBlack;
+  margin-right: 10px;
+  width: calc(100% / 3);
+  h1 {
+    font-weight: 300;
+    font-size: 30px;
+  }
+  small {
+    font-size: 14px;
+    font-weight: 600;
+  }
+}

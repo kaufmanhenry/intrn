@@ -69,6 +69,12 @@ module.exports = function (app) {
                 type: Number,
                 required: true,
                 default: 0
+            },
+
+            interested: {
+                type: Number,
+                required: true,
+                default: 0
             }
         }
     };

@@ -35,6 +35,18 @@ angular.module('intrn')
                             }, Error.handle)
                         });
                     };
+
+                    $scope.deleteAllPosts = function () {
+                        $scope.jobs.forEach(function (a) {
+                            Job.remove({job_id: a._id}, function () {
+                                $scope.load();
+                            }, Error.handle);
+                        })
+                    };
+
+                    $scope.selectJob = function (a) {
+                        $scope.selectedJob = a;
+                    };
                 }]
         };
     });

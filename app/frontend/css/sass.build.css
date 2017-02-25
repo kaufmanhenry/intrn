@@ -396,3 +396,21 @@ h1, h2, h3, h4, h5, h6 {
 .font-semi-bold {
   font-weight: 600; }
 
+.stat-box {
+  display: flex; }
+
+.stat {
+  border: solid 1px #D5D5D5;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 0 10px 8px 10px;
+  color: #575757;
+  margin-right: 10px;
+  width: calc(100% / 3); }
+  .stat h1 {
+    font-weight: 300;
+    font-size: 30px; }
+  .stat small {
+    font-size: 14px;
+    font-weight: 600; }
+

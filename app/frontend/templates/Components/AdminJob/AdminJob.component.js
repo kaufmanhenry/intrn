@@ -4,20 +4,19 @@ angular.module('intrn')
             scope: {
                 job: '=intrnJobData',
                 onChange: '&intrnOnChangeLoad',
-                expired: '@intrnJobExpired'
+                expired: '@intrnJobExpired',
+                selectJob: '&intrnSelectJob'
             },
             templateUrl: 'templates/Components/AdminJob/AdminJob.html',
             controller: ['$scope', '$q', '$timeout', '$uibModal', 'Job', 'Error', function ($scope, $q, $timeout, $uibModal, Job, Error) {
                 $q.all([
                     Job.get({job_id: $scope.job._id || $scope.job}, function (a) {
                         $scope.job = a;
-                        console.log(a);
                     }).$promise,
                     Job.queryApplicants({job_id: $scope.job._id || $scope.job}, function (a) {
-                        $scope.applicants = a;
+                        $scope.job.applicants = a;
                     }).$promise
                 ]).then(function () {
-
                 }, Error.handle);
 
                 $scope.removeJob = function () {
@@ -53,6 +52,10 @@ angular.module('intrn')
                         $timeout($scope.onChange());
                     }, Error.handle);
                 };
+
+                $scope.clickJob = function () {
+                    $scope.selectJob({job: $scope.job});
+                }
             }]
         };
     });

@@ -1,4 +1,4 @@
-<div class="intrn-box">
+<div class="intrn-box" ng-click="clickJob()">
     <p class="text-{{job.role.styleClass}} job-type">{{job.role.name}}</p>
     <h3 class="job-title">{{job.title}}</h3>
     <p class="meta-stats">{{job.location.name}} - Posted on {{job.createdAt | date}} by {{job.company.name}} -
@@ -10,7 +10,7 @@
             <div class="applicants-table-box">
                 <table class="applicants-table">
                     <tbody>
-                    <tr ng-repeat="applicant in applicants">
+                    <tr ng-repeat="applicant in job.applicants">
                         <td class="font-semi-bold dark-gray-text">{{applicant.firstName}} {{applicant.lastName}}</td>
                         <td class="gray-text">{{applicant.createdAt | date}}</td>
                         <td><a href ng-click="viewApplication(applicant)">View Application</a></td>
