@@ -38,7 +38,7 @@ module.exports = function (app) {
             AuthLogic.verifyToken(req.headers.token, function (err, token) {
                 if (err) return cb(err);
 
-                if (token.user !== req.body.user) {
+                if (token._id.toString() !== (req.body.user._id||req.body.user)) {
                     return cb({
                         message: 'Authentication error. File owner does not match token.',
                         status: 403
@@ -78,10 +78,11 @@ module.exports = function (app) {
 
 
     function transformGFSFileToBlob(result) {
+        console.log(result)
         return {
             file: result,
-            _id: result._id,
-            path: BLOB_ROUTE + result._id + BLOB_ROUTE_SUFFIX
+            _id: result._id||result.id,
+            path: BLOB_ROUTE + (result._id||result.id) + BLOB_ROUTE_SUFFIX
         };
     }
 
