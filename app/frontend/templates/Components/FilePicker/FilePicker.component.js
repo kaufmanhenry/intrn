@@ -1,3 +1,4 @@
+//This code was written by Jake Billings. He's a great developer. You can learn more about him at jakebillings.com
 angular.module('intrn')
     .directive('intrnFilePickerComponent', function () {
         return {
