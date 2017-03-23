@@ -1,3 +1,8 @@
+/**
+ * Written by Jake Billings 2017
+ *
+ * Despite Henry's misleading commit history
+ */
 angular.module('intrn')
     .directive('intrnInternshipView', function () {
         return {
@@ -35,12 +40,21 @@ angular.module('intrn')
                     };
 
                     $scope.upload = function () {
-                        return Blob.uploadBase64Url($scope.data, {
+                        console.log('upload')
+                        return Blob.uploadBase64Url($scope.uri, {
                             user: Auth.getTokenPayload().user,
                             filename: $scope.file.name,
                             job: $scope.internship._id || $scope.internship
                         }).then(function () {
                         }, Error.handle);
+                    };
+
+                    $scope.onSelect = function (file) {
+                        $scope.file = file;
+                    };
+
+                    $scope.onLoad = function (uri) {
+                        $scope.uri = uri;
                     };
 
                     $scope.load();

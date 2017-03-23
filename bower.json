@@ -24,6 +24,7 @@
     "angular-bootstrap": "^2.5.0",
     "satellizer": "^0.15.5",
     "angular-jwt": "^0.1.9",
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "angular-base64": "^2.0.5"
   }
 }
