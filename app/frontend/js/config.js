@@ -10,6 +10,9 @@ angular.module('intrn')
             .when('/', {
                 template: '<intrn-home-view></intrn-home-view>'
             })
+            .when('/privacy', {
+                template: '<intrn-privacy-view></intrn-privacy-view>'
+            })
             .when('/dashboard', {
                 resolveRedirectTo: ['Auth', function (Auth) {
                     var payload = Auth.getTokenPayload();
