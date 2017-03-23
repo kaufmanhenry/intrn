@@ -5,7 +5,13 @@ angular.module('intrn')
                 job: '=intrnJobData'
             },
             templateUrl: 'templates/Components/JobListing/JobListing.html',
-            controller: ['$scope', '$uibModal', 'Job', 'Error', function ($scope, $uibModal, Job, Error) {
+            controller: ['$scope', '$uibModal', '$q', 'Blob', 'Job', 'Error', function ($scope, $uibModal, $q, Blob, Job, Error) {
+                $q.all([
+                    Blob.resource.queryJobs({job_id: $scope.job._id || $scope.job}, function (a) {
+                        $scope.blob = a[0];
+                    }).$promise
+                ]).then(function () {
+                }, Error.handle);
                 $scope.toggleDropdown = function () {
                     $scope.dropdownIsOpen = !$scope.dropdownIsOpen;
                     //Add interest for the job

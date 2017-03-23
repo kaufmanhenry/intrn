@@ -40,7 +40,6 @@ angular.module('intrn')
                     };
 
                     $scope.upload = function () {
-                        console.log('upload')
                         return Blob.uploadBase64Url($scope.uri, {
                             user: Auth.getTokenPayload().user,
                             filename: $scope.file.name,

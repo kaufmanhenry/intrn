@@ -78,7 +78,6 @@ module.exports = function (app) {
 
 
     function transformGFSFileToBlob(result) {
-        console.log(result)
         return {
             file: result,
             _id: result._id||result.id,
