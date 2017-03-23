@@ -78,10 +78,26 @@
             <hr>
         </div>
         <div class="col-md-6">
-            <button class="btn btn-primary btn-block">Upload Challenge</button>
+            <h4>Upload Challenge</h4>
+            <hr>
+            <intrn-file-picker-component intrn-on-select="onSelectChallenge(file)"
+                                         intrn-on-load="onLoadChallenge(uri)"></intrn-file-picker-component>
+            <span ng-if="challengeFile.name">{{challengeFile.name}}</span>
+            <button class="btn btn-primary pull-right"
+                    ng-if="challengeUri&&challengeFile.name"
+                    ng-click="upload('challenge', challengeUri, challengeFile)">Upload Challenge
+            </button>
         </div>
         <div class="col-md-6">
-            <button class="btn btn-info btn-block">Upload Résumé</button>
+            <h4>Upload Résumé</h4>
+            <hr>
+            <intrn-file-picker-component intrn-on-select="onSelectResume(file)"
+                                         intrn-on-load="onLoadResume(uri)"></intrn-file-picker-component>
+            <span ng-if="resumeFile.name">{{resumeFile.name}}</span>
+            <button class="btn btn-primary pull-right"
+                    ng-if="resumeUri&&resumeFile.name"
+                    ng-click="upload('resume', resumeUri, resumeFile)">Upload Résumé
+            </button>
         </div>
         <div class="col-md-12">
             <br>
@@ -95,12 +111,13 @@
         </div>
         <div class="col-md-12">
             <small class="text-muted">By clicking “Apply” you are confirming that you have read and accepted our <a
-                    href="#">Privacy Policy</a> and <a href="#">Terms of Service</a>.
+                    href="#/privacy">Privacy Policy</a> and <a href="#">Terms of Service</a>.
             </small>
         </div>
     </div>
 </div>
 <div class="modal-footer text-center">
     <button class="btn btn-default" ng-click="close()">{{applicant._id ? 'Close' : 'Maybe Later'}}</button>
-    <button class="btn btn-success" ng-click="apply(applicant)">{{applicant._id ? 'Update' : 'Apply for This Job'}}</button>
+    <button class="btn btn-success" ng-click="apply(applicant)">{{applicant._id ? 'Update' : 'Apply for This Job'}}
+    </button>
 </div>

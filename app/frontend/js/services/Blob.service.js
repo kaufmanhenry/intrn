@@ -35,7 +35,6 @@ angular.module('intrn')
             };
 
             APIBlob.uploadBlob = function (blob, body) {
-
                 if (!body.user) throw new Error('body.user required is required for blob upload');
                 body.user = body.user._id || body.user;
                 if (typeof body.user !== 'string') throw new Error('body.user must be a string or have a string _id');

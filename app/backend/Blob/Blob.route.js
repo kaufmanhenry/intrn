@@ -1,3 +1,4 @@
+//This code was written by Jake Billings. He's a great developer. You can learn more about him at jakebillings.com
 module.exports = function (app) {
 
     var router = app.get('router')();
@@ -38,7 +39,7 @@ module.exports = function (app) {
             AuthLogic.verifyToken(req.headers.token, function (err, token) {
                 if (err) return cb(err);
 
-                if (token._id.toString() !== (req.body.user._id||req.body.user)) {
+                if (token._id.toString() !== (req.body.user._id || req.body.user)) {
                     return cb({
                         message: 'Authentication error. File owner does not match token.',
                         status: 403
@@ -80,8 +81,8 @@ module.exports = function (app) {
     function transformGFSFileToBlob(result) {
         return {
             file: result,
-            _id: result._id||result.id,
-            path: BLOB_ROUTE + (result._id||result.id) + BLOB_ROUTE_SUFFIX
+            _id: result._id || result.id,
+            path: BLOB_ROUTE + (result._id || result.id) + BLOB_ROUTE_SUFFIX
         };
     }
 
@@ -102,6 +103,19 @@ module.exports = function (app) {
 
     router.get('/jobs/:job', auth, function (req, res) {
         return queryBlobs(req, res, {'metadata.job': req.params.job});
+    });
+
+    router.get('/applicants/:applicant/resume', auth, function (req, res) {
+        return queryBlobs(req, res, {
+            'metadata.applicant': req.params.applicant,
+            'metadata.applicantFileType': 'resume'
+        });
+    });
+    router.get('/applicants/:applicant/challenge', auth, function (req, res) {
+        return queryBlobs(req, res, {
+            'metadata.applicant': req.params.applicant,
+            'metadata.applicantFileType': 'challenge'
+        });
     });
 
     router.get('/:_id', auth, function (req, res) {
@@ -147,7 +161,6 @@ module.exports = function (app) {
     }
 
     router.get('/:_id/blob', readRoute);
-    router.get('/users/:user/:_id/blob', readRoute);
 
     router.post('/',
         function (req, res, next) {
@@ -178,8 +191,6 @@ module.exports = function (app) {
     }
 
     router.delete('/:_id', auth, deleteRoute);
-
-    router.delete('/users/:user/blobs/:_id', auth, deleteRoute);
 
     return router;
 };

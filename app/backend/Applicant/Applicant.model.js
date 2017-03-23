@@ -12,24 +12,24 @@ module.exports = function (app) {
         schema: {
             firstName: {
                 type: String,
-                required: true
+                required: false
             },
             lastName: {
                 type: String,
-                required: true
+                required: false
             },
             school: {
                 type: Object,
                 enum: enums.AllSchools,
-                required: true
+                required: false
             },
             email: {
                 type: String,
-                required: true
+                required: false
             },
             phone: {
                 type: String,
-                required: true
+                required: false
             },
 
             twitter: {
@@ -47,7 +47,7 @@ module.exports = function (app) {
 
             bio: {
                 type: String,
-                required: true
+                required: false
             },
             job: {
                 type: ObjectId,

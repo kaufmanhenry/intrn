@@ -7,7 +7,7 @@ angular.module('intrn')
                 applicantId: '@intrnApplicantIdData'
             },
             templateUrl: 'templates/Components/ApplyForJobModal/ApplyForJobModal.html',
-            controller: ['$scope', '$q', 'Enums', 'Applicant', 'Error', function ($scope, $q, Enums, Applicant, Error) {
+            controller: ['$scope', '$q', 'Enums', 'Blob', 'Applicant', 'Error', function ($scope, $q, Enums, Blob, Applicant, Error) {
                 var promises = [];
 
                 promises.push(
@@ -20,7 +20,6 @@ angular.module('intrn')
                 if ($scope.applicantId) {
                     promises.push(
                         Applicant.get({applicant_id: $scope.applicantId}, function (a) {
-                            console.log(a);
                             $scope.applicant = a;
                         }).$promise
                     );
@@ -36,6 +35,31 @@ angular.module('intrn')
                     Applicant.save($scope.applicant, function () {
                         $scope.close();
                     }, Error.handle);
+                };
+
+                $scope.upload = function (fileType, uri, file) {
+                    return Blob.uploadBase64Url(uri, {
+                        filename: file.name,
+                        applicant: $scope.applicant._id || $scope.applicant,
+                        applicantFileType: fileType
+                    }).then(function () {
+                    }, Error.handle);
+                };
+
+                $scope.onSelectChallenge = function (file) {
+                    $scope.challengeFile = file;
+                };
+
+                $scope.onLoadChallenge = function (uri) {
+                    $scope.challengeUri = uri;
+                };
+
+                $scope.onSelectResume = function (file) {
+                    $scope.resumeFile = file;
+                };
+
+                $scope.onLoadResume = function (uri) {
+                    $scope.resumeUri = uri;
                 };
             }]
         }
