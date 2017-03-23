@@ -14,6 +14,7 @@ angular.module('intrn')
                 var input = element.find('input');
 
                 scope.clickEvent = function () {
+                    console.log(input);
                     input.click();
                 };
 
