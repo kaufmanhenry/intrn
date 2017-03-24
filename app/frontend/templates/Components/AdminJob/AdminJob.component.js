@@ -8,13 +8,16 @@ angular.module('intrn')
                 selectJob: '&intrnSelectJob'
             },
             templateUrl: 'templates/Components/AdminJob/AdminJob.html',
-            controller: ['$scope', '$q', '$timeout', '$uibModal', 'Job', 'Error', function ($scope, $q, $timeout, $uibModal, Job, Error) {
+            controller: ['$scope', '$q', '$timeout', '$uibModal', 'Job', 'Blob', 'Error', function ($scope, $q, $timeout, $uibModal, Job, Blob, Error) {
                 $q.all([
                     Job.get({job_id: $scope.job._id || $scope.job}, function (a) {
                         $scope.job = a;
                     }).$promise,
                     Job.queryApplicants({job_id: $scope.job._id || $scope.job}, function (a) {
                         $scope.job.applicants = a;
+                    }).$promise,
+                    Blob.resource.queryJobs({job_id: $scope.job._id || $scope.job}, function (a) {
+                        $scope.blob = a[0];
                     }).$promise
                 ]).then(function () {
                 }, Error.handle);

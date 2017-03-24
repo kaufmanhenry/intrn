@@ -6,19 +6,19 @@
     </p>
     <div class="job-description">
         <hr>
-        <div class="table-responsive" ng-if="applicants.length > 0">
-            <div class="applicants-table-box">
-                <table class="applicants-table">
-                    <tbody>
-                    <tr ng-repeat="applicant in job.applicants">
-                        <td class="font-semi-bold dark-gray-text">{{applicant.firstName}} {{applicant.lastName}}</td>
-                        <td class="gray-text">{{applicant.createdAt | date}}</td>
-                        <td><a href ng-click="viewApplication(applicant)">View Application</a></td>
-                        <td><a ng-href="mailto:{{applicant.email}}" class="applicant-contact-link">Contact</a></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="applicants-table-box table-responsive" ng-if="job.applicants.length > 0">
+            <table class="applicants-table">
+                <tbody>
+                <tr ng-repeat="applicant in job.applicants">
+                    <td class="font-semi-bold dark-gray-text" style="max-width: 300px">{{applicant.firstName}}
+                        {{applicant.lastName}}
+                    </td>
+                    <td class="gray-text">{{applicant.createdAt | date}}</td>
+                    <td><a href ng-click="viewApplication(applicant)">View Application</a></td>
+                    <td><a ng-href="mailto:{{applicant.email}}" class="applicant-contact-link">Contact</a></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
         <div class="job-description-item">
             <h4>What you’ll do with us</h4>
@@ -37,8 +37,9 @@
             <button class="btn btn-create-job btn-rounded" ng-click="relist()" ng-if="expired">Re-List</button>
         </div>
         <div class="pull-right">
-            <a class="btn btn-edit btn-rounded" ng-href="#/companies/{{job.company._id}}/internships/{{job._id}}" ng-if="!expired">Edit</a>
-            <a class="btn btn-view-challenge btn-rounded " ng-href="#">View Challenge</a>
+            <a class="btn btn-edit btn-rounded" ng-href="#/companies/{{job.company._id}}/internships/{{job._id}}"
+               ng-if="!expired">Edit</a>
+            <a class="btn btn-view-challenge btn-rounded " ng-href="{{blob.path}}">View Challenge</a>
         </div>
         <div class="clearfix"></div>
     </div>

@@ -18,14 +18,21 @@ angular.module('intrn')
                 );
 
                 if ($scope.applicantId) {
-                    promises.push(
+                    promises.concat([
                         Applicant.get({applicant_id: $scope.applicantId}, function (a) {
                             $scope.applicant = a;
+                        }).$promise,
+                        Blob.resource.queryResume({applicant_id: $scope.applicantId}, function (a) {
+                            $scope.loadedResume = a[0];
+                        }).$promise,
+                        Blob.resource.queryChallenge({applicant_id: $scope.applicantId}, function (a) {
+                            $scope.loadedChallenge = a[0];
                         }).$promise
-                    );
+                    ]);
                 }
 
                 $q.all(promises).then(function () {
+                    $scope.promiseComplete = true;
                     //If the applicant does not exist, create one
                     if (!$scope.applicant) $scope.applicant = {job: $scope.jobId};
                 }, Error.handle);
@@ -34,7 +41,7 @@ angular.module('intrn')
                 $scope.apply = function () {
                     Applicant.save($scope.applicant, function (a) {
                         $scope.applicant = a;
-                        $scope.upload();
+                        if (!$scope.loadedResume && !$scope.loadedChallenge) $scope.upload();
                     }, Error.handle);
                 };
 

@@ -11,6 +11,16 @@ angular.module('intrn')
                     method: 'GET',
                     url: API_BASE + 'blobs/jobs/:job_id',
                     isArray: true
+                },
+                queryResume: {
+                    method: 'GET',
+                    url: API_BASE + 'blobs/applicants/:applicant_id/resume',
+                    isArray: true
+                },
+                queryChallenge: {
+                    method: 'GET',
+                    url: API_BASE + 'blobs/applicants/:applicant_id/challenge',
+                    isArray: true
                 }
             });
 
