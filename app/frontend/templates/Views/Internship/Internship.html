@@ -131,10 +131,6 @@
                 <intrn-file-picker-component intrn-on-select="onSelect(file)"
                                              intrn-on-load="onLoad(uri)"></intrn-file-picker-component>
                 <span ng-if="file.name">{{file.name}}</span>
-                <button class="btn btn-success pull-right"
-                        ng-if="uri&&file.name"
-                        ng-click="upload()">Upload
-                </button>
                 <br>
                 <br>
                 <h4>Finalize Posting

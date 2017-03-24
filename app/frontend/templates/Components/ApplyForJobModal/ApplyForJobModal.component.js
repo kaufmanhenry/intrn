@@ -32,17 +32,29 @@ angular.module('intrn')
 
 
                 $scope.apply = function () {
-                    Applicant.save($scope.applicant, function () {
-                        $scope.close();
+                    Applicant.save($scope.applicant, function (a) {
+                        $scope.applicant = a;
+                        $scope.upload();
                     }, Error.handle);
                 };
 
-                $scope.upload = function (fileType, uri, file) {
-                    return Blob.uploadBase64Url(uri, {
-                        filename: file.name,
-                        applicant: $scope.applicant._id || $scope.applicant,
-                        applicantFileType: fileType
-                    }).then(function () {
+                //Uploads the necessary files
+                $scope.upload = function () {
+                    $q.all([
+                        Blob.uploadBase64Url($scope.challengeUri, {
+                            filename: $scope.challengeFile.name,
+                            applicant: $scope.applicant._id || $scope.applicant,
+                            applicantFileType: 'challenge',
+                            isPublic: true
+                        }).$promise,
+                        Blob.uploadBase64Url($scope.resumeUri, {
+                            filename: $scope.resumeFile.name,
+                            applicant: $scope.applicant._id || $scope.applicant,
+                            applicantFileType: 'resume',
+                            isPublic: true
+                        }).$promise
+                    ]).then(function () {
+                        $scope.close();
                     }, Error.handle);
                 };
 

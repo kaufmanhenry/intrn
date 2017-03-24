@@ -83,10 +83,6 @@
             <intrn-file-picker-component intrn-on-select="onSelectChallenge(file)"
                                          intrn-on-load="onLoadChallenge(uri)"></intrn-file-picker-component>
             <span ng-if="challengeFile.name">{{challengeFile.name}}</span>
-            <button class="btn btn-primary pull-right"
-                    ng-if="challengeUri&&challengeFile.name"
-                    ng-click="upload('challenge', challengeUri, challengeFile)">Upload Challenge
-            </button>
         </div>
         <div class="col-md-6">
             <h4>Upload Résumé</h4>
@@ -94,10 +90,6 @@
             <intrn-file-picker-component intrn-on-select="onSelectResume(file)"
                                          intrn-on-load="onLoadResume(uri)"></intrn-file-picker-component>
             <span ng-if="resumeFile.name">{{resumeFile.name}}</span>
-            <button class="btn btn-primary pull-right"
-                    ng-if="resumeUri&&resumeFile.name"
-                    ng-click="upload('resume', resumeUri, resumeFile)">Upload Résumé
-            </button>
         </div>
         <div class="col-md-12">
             <br>

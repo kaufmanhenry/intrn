@@ -35,6 +35,8 @@ angular.module('intrn')
                     $scope.saveJob = function () {
                         $scope.internship.company = $routeParams.company_id;
                         Job.save($scope.internship, function (a) {
+                            $scope.internship = a;
+                            $scope.upload();
                             $location.path('/companies/' + $routeParams.company_id + '/internships/' + a._id);
                         }, Error.handle);
                     };

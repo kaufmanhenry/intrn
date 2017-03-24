@@ -35,6 +35,9 @@ module.exports = function (app) {
             return cb(null, req.body.filename);
         },
         metadata: function (req, file, cb) {
+            //If the file is marked as public, return immediately
+            if (req.body.isPublic) return cb(null, req.body);
+            //The file needs a user
             if (typeof req.body.user !== 'string') return cb({message: 'User is required', status: 422});
             AuthLogic.verifyToken(req.headers.token, function (err, token) {
                 if (err) return cb(err);
@@ -101,7 +104,7 @@ module.exports = function (app) {
         return queryBlobs(req, res, {});
     });
 
-    router.get('/jobs/:job', auth, function (req, res) {
+    router.get('/jobs/:job', function (req, res) {
         return queryBlobs(req, res, {'metadata.job': req.params.job});
     });
 
