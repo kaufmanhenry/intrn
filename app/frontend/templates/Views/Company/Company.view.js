@@ -2,8 +2,8 @@ angular.module('intrn')
     .directive('intrnCompanyView', function () {
         return {
             templateUrl: 'templates/Views/Company/Company.html',
-            controller: ['$scope', '$q', '$routeParams', 'User', 'Company', 'Job', 'POST_EXPIRATION', 'Error',
-                function ($scope, $q, $routeParams, User, Company, Job, POST_EXPIRATION, Error) {
+            controller: ['$scope', '$q', '$routeParams', 'Actions', 'User', 'Company', 'Job', 'POST_EXPIRATION', 'Error',
+                function ($scope, $q, $routeParams, Actions, User, Company, Job, POST_EXPIRATION, Error) {
                     $scope.load = function () {
                         $q.all([
                             Company.get($routeParams, function (a) {
@@ -29,19 +29,36 @@ angular.module('intrn')
                     $scope.load();
 
                     $scope.deleteOldPosts = function () {
-                        $scope.expiredJobs.forEach(function (a) {
-                            Job.remove({job_id: a._id}, function () {
-                                $scope.load();
-                            }, Error.handle)
-                        });
+                        return Actions.openConfirmModal(
+                            'Are you sure you want to remove all of your old job postings?',
+                            'danger',
+                            'Remove Old Posts',
+                            false,
+                            function () {
+                                $scope.expiredJobs.forEach(function (a) {
+                                    Job.remove({job_id: a._id}, function () {
+                                        $scope.load();
+                                    }, Error.handle)
+                                });
+                            }, function () {
+                            });
                     };
 
                     $scope.deleteAllPosts = function () {
-                        $scope.jobs.forEach(function (a) {
-                            Job.remove({job_id: a._id}, function () {
-                                $scope.load();
-                            }, Error.handle);
-                        })
+                        return Actions.openConfirmModal(
+                            'Are you sure you want to remove all of your job postings?',
+                            'This cannot be undone and you will lose all of your applicants and posting challenges!',
+                            'danger',
+                            'Remove Everything',
+                            false,
+                            function () {
+                                $scope.jobs.forEach(function (a) {
+                                    Job.remove({job_id: a._id}, function () {
+                                        $scope.load();
+                                    }, Error.handle)
+                                });
+                            }, function () {
+                            });
                     };
 
                     $scope.selectJob = function (a) {

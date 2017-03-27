@@ -7,7 +7,7 @@ angular.module('intrn')
                 applicantId: '@intrnApplicantIdData'
             },
             templateUrl: 'templates/Components/ApplyForJobModal/ApplyForJobModal.html',
-            controller: ['$scope', '$q', 'Enums', 'Blob', 'Applicant', 'Error', function ($scope, $q, Enums, Blob, Applicant, Error) {
+            controller: ['$scope', '$q', 'Enums', 'Actions', 'Blob', 'Applicant', 'Error', function ($scope, $q, Enums, Actions, Blob, Applicant, Error) {
                 var promises = [];
 
                 promises.push(
@@ -39,10 +39,19 @@ angular.module('intrn')
 
 
                 $scope.apply = function () {
-                    Applicant.save($scope.applicant, function (a) {
-                        $scope.applicant = a;
-                        if (!$scope.loadedResume && !$scope.loadedChallenge) $scope.upload();
-                    }, Error.handle);
+                    return Actions.openConfirmModal(
+                        'You’ve successfully submitted your application to Galvanize!',
+                        null,
+                        'success',
+                        'Hurray!',
+                        true,
+                        function () {
+                            Applicant.save($scope.applicant, function (a) {
+                                $scope.applicant = a;
+                                if (!$scope.loadedResume && !$scope.loadedChallenge) $scope.upload();
+                            }, Error.handle);
+                        }, function () {
+                        });
                 };
 
                 //Uploads the necessary files

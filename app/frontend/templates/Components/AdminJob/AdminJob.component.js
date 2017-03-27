@@ -8,7 +8,7 @@ angular.module('intrn')
                 selectJob: '&intrnSelectJob'
             },
             templateUrl: 'templates/Components/AdminJob/AdminJob.html',
-            controller: ['$scope', '$q', '$timeout', '$uibModal', 'Job', 'Blob', 'Error', function ($scope, $q, $timeout, $uibModal, Job, Blob, Error) {
+            controller: ['$scope', '$q', '$timeout', '$uibModal', 'Job', 'Actions', 'Blob', 'Error', function ($scope, $q, $timeout, $uibModal, Job, Actions, Blob, Error) {
                 $q.all([
                     Job.get({job_id: $scope.job._id || $scope.job}, function (a) {
                         $scope.job = a;
@@ -23,9 +23,17 @@ angular.module('intrn')
                 }, Error.handle);
 
                 $scope.removeJob = function () {
-                    Job.remove({job_id: $scope.job._id}, function () {
-                        $timeout($scope.onChange());
-                    }, Error.handle);
+                    return Actions.openConfirmModal(
+                        'Are you sure you want to delete this post?',
+                        null,
+                        'danger',
+                        'Remove the post!',
+                        function () {
+                            Job.remove({job_id: $scope.job._id}, function () {
+                                $timeout($scope.onChange());
+                            }, Error.handle);
+                        }, function () {
+                        });
                 };
 
                 $scope.viewApplication = function (applicant) {

@@ -7,12 +7,14 @@ angular.module('intrn')
     .directive('intrnInternshipView', function () {
         return {
             templateUrl: 'templates/Views/Internship/Internship.html',
-            controller: ['$scope', '$q', '$routeParams', '$location', 'Auth', 'Job', 'Blob', 'Enums', 'Error',
-                function ($scope, $q, $routeParams, $location, Auth, Job, Blob, Enums, Error) {
+            controller: ['$scope', '$q', '$routeParams', '$location', 'Auth', 'Actions', 'Job', 'Blob', 'Enums', 'Error',
+                function ($scope, $q, $routeParams, $location, Auth, Actions, Job, Blob, Enums, Error) {
                     $scope.load = function () {
                         var promises = [];
 
-                        if ($routeParams.job_id !== 'new') {
+                        $scope.creatingNew = $routeParams.job_id === 'new';
+
+                        if (!$scope.creatingNew) {
                             promises.push(
                                 Job.get({job_id: $routeParams.job_id}, function (a) {
                                     $scope.internship = a;
@@ -34,11 +36,19 @@ angular.module('intrn')
 
                     $scope.saveJob = function () {
                         $scope.internship.company = $routeParams.company_id;
-                        Job.save($scope.internship, function (a) {
-                            $scope.internship = a;
-                            $scope.upload();
-                            $location.path('/companies/' + $routeParams.company_id + '/internships/' + a._id);
-                        }, Error.handle);
+                        if ($scope.creatingNew) {
+                            return Actions.openConfirmModal(
+                                'You’ve successfully submitted your job posting!',
+                                null,
+                                'success',
+                                'Hurray!',
+                                true,
+                                function () {
+                                    return saveInternship();
+                                }, function () {
+                                    return saveInternship();
+                                });
+                        }
                     };
 
                     $scope.upload = function () {
@@ -56,6 +66,14 @@ angular.module('intrn')
 
                     $scope.onLoad = function (uri) {
                         $scope.uri = uri;
+                    };
+
+                    var saveInternship = function () {
+                        return Job.save($scope.internship, function (a) {
+                            $scope.internship = a;
+                            $scope.upload();
+                            $location.path('/companies/' + $routeParams.company_id + '/internships/' + a._id);
+                        }, Error.handle);
                     };
 
                     $scope.load();
