@@ -13,6 +13,9 @@ angular.module('intrn')
             .when('/privacy', {
                 template: '<intrn-privacy-view></intrn-privacy-view>'
             })
+            .when('/about', {
+                template: '<intrn-about-view></intrn-about-view>'
+            })
             .when('/dashboard', {
                 resolveRedirectTo: ['Auth', function (Auth) {
                     var payload = Auth.getTokenPayload();
