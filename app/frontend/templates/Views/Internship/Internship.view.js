@@ -15,11 +15,15 @@ angular.module('intrn')
                         $scope.creatingNew = $routeParams.job_id === 'new';
 
                         if (!$scope.creatingNew) {
-                            promises.push(
+                            promises.concat([
                                 Job.get({job_id: $routeParams.job_id}, function (a) {
                                     $scope.internship = a;
+                                }).$promise,
+                                Blob.resource.queryJobs({job_id: $routeParams.job_id}, function (a) {
+                                    console.log(a);
+                                    $scope.blob = a[0];
                                 }).$promise
-                            );
+                            ]);
                         }
                         $q.all(promises.concat([
                             Enums.get(function (a) {

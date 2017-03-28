@@ -128,9 +128,14 @@
                 <br>
                 <h4>Upload Challenge</h4>
                 <hr>
-                <intrn-file-picker-component intrn-on-select="onSelect(file)"
-                                             intrn-on-load="onLoad(uri)"></intrn-file-picker-component>
-                <span ng-if="file.name">{{file.name}}</span>
+                <div ng-if="!blob">
+                    <intrn-file-picker-component intrn-on-select="onSelect(file)"
+                                                 intrn-on-load="onLoad(uri)"></intrn-file-picker-component>
+                    <span ng-if="file.name">{{file.name}}</span>
+                </div>
+                <div ng-if="blob">
+                    <p>You have already uploaded <a ng-href="{{blob.path}}">{{blob.file.filename}}</a>.</p>
+                </div>
                 <br>
                 <br>
                 <h4>Finalize Posting
@@ -138,7 +143,6 @@
                           uib-tooltip="Submit your posting to the job board. Candidates will be able to see and apply for your posting."></span>
                 </h4>
                 <hr>
-                <button class="btn btn-primary btn-block btn-preview-job btn-rounded">Preview this Job Posting</button>
                 <button class="btn btn-create-job btn-block btn-rounded"
                         ng-disabled="internshipForm.$invalid"
                         ng-click="saveJob()">{{internship._id ? 'Update' : 'Ready to Publish'}} this Job
