@@ -7,15 +7,18 @@ angular.module('intrn')
                 applicantId: '@intrnApplicantIdData'
             },
             templateUrl: 'templates/Components/ApplyForJobModal/ApplyForJobModal.html',
-            controller: ['$scope', '$q', 'Enums', 'Actions', 'Blob', 'Applicant', 'Error', function ($scope, $q, Enums, Actions, Blob, Applicant, Error) {
+            controller: ['$scope', '$q', 'Enums', 'Actions', 'Blob', 'Job', 'Applicant', 'Error', function ($scope, $q, Enums, Actions, Blob, Job, Applicant, Error) {
                 var promises = [];
 
-                promises.push(
+                promises.concat([
                     Enums.get(function (a) {
                         $scope.enums = a;
                         $scope.schools = a.AllSchools;
+                    }).$promise,
+                    Job.get({job_id: $scope.jobId}, function (a) {
+                        $scope.job = a;
                     }).$promise
-                );
+                ]);
 
                 if ($scope.applicantId) {
                     promises.concat([
@@ -40,7 +43,7 @@ angular.module('intrn')
 
                 $scope.apply = function () {
                     return Actions.openConfirmModal(
-                        'You’ve successfully submitted your application to Galvanize!',
+                        'You’ve successfully submitted your application to ' + $scope.job.companyName + '!',
                         null,
                         'success',
                         'Hurray!',
