@@ -46,6 +46,16 @@ h1, h2, h3, h4, h5, h6 {
   color: $growth;
 }
 
+.text-danger {
+  color: $red;
+}
+
+.text-red-hover {
+  &:hover {
+    color: $red;
+  }
+}
+
 .black-text {
   color: $black;
 }

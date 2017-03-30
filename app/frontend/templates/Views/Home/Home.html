@@ -12,7 +12,11 @@
     </div>
     <div class="col-md-4">
         <div class="intrn-filters">
-            <h4>Role</h4>
+            <h4>Role
+                <span class="pull-right text-red-hover glyphicon glyphicon-remove"
+                      ng-if="filters.roleFilters.length > 0"
+                      ng-click="removeFilters('roleFilters')"></span>
+            </h4>
             <hr>
             <button class="btn btn-role-selector btn-{{role.styleClass}}"
                     ng-repeat="role in enums.AllRoles"
@@ -22,7 +26,11 @@
             </button>
             <br>
             <br>
-            <h4>Locations</h4>
+            <h4>Locations
+                <span class="pull-right text-red-hover glyphicon glyphicon-remove"
+                      ng-if="filters.locationFilters.length > 0"
+                      ng-click="removeFilters('locationFilters')"></span>
+            </h4>
             <hr>
             <button class="btn btn-toggle"
                     ng-repeat="location in enums.AllLocations"
@@ -32,7 +40,11 @@
             </button>
             <br>
             <br>
-            <h4>Job Type</h4>
+            <h4>Job Type
+                <span class="pull-right text-red-hover glyphicon glyphicon-remove"
+                      ng-if="filters.jobFilters.length > 0"
+                      ng-click="removeFilters('jobFilters')"></span>
+            </h4>
             <hr>
             <button class="btn btn-toggle"
                     ng-repeat="jobType in enums.AllJobTypes"

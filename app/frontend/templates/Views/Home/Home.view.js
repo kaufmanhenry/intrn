@@ -49,6 +49,11 @@ angular.module('intrn')
                 $scope.isInFilter = function (a, b) {
                     return $scope.filters[a].indexOf(b.name) >= 0;
                 };
+
+                $scope.removeFilters = function (filter) {
+                    $scope.filters[filter] = [];
+                    $scope.filterJobs();
+                };
             }]
         };
     });

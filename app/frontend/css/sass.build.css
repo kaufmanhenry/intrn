@@ -364,6 +364,12 @@ h1, h2, h3, h4, h5, h6 {
 .text-growth {
   color: #19AAE5; }
 
+.text-danger {
+  color: #D97441; }
+
+.text-red-hover:hover {
+  color: #D97441; }
+
 .black-text {
   color: #4A4A4A; }
 
