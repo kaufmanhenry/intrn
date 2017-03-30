@@ -3,7 +3,8 @@ angular.module('intrn')
         return {
             scope: {
                 heading: '@intrnBannerHeadingData',
-                subheading: '@intrnBannerSubheadingData'
+                subheading: '@intrnBannerSubheadingData',
+                bannerImage: '@intrnBannerImage'
             },
             templateUrl: 'templates/Components/Banner/Banner.html'
         };
