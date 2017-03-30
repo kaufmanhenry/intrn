@@ -145,7 +145,7 @@
                 </h4>
                 <hr>
                 <button class="btn btn-create-job btn-block btn-rounded"
-                        ng-disabled="internshipForm.$invalid"
+                        ng-disabled="internshipForm.$invalid || !internship.location || !internship.role || !internship.jobType || !(file || blob)"
                         ng-click="saveJob()">{{internship._id ? 'Update' : 'Ready to Publish'}} this Job
                 </button>
             </div>
