@@ -1,7 +1,8 @@
 .intrn-container {
   width: 90%;
   max-width: 1200px;
-  margin: 36px auto; }
+  margin: 36px auto;
+  padding-bottom: 100px; }
 
 .intrnBanner {
   width: 100%;
@@ -103,7 +104,8 @@ textarea {
 .intrn-container {
   width: 90%;
   max-width: 1200px;
-  margin: 36px auto; }
+  margin: 36px auto;
+  padding-bottom: 100px; }
 
 .intrnBanner {
   width: 100%;
