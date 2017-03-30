@@ -56,19 +56,23 @@ textarea {
   margin: 10px 0; }
 
 .intrn-box {
-  padding: 20px;
+  padding: 15px;
   width: 100%;
   background-color: #fff;
   border: solid 1px #D5D5D5;
   border-radius: 4px;
   margin-bottom: 10px; }
+  .intrn-box .job-content {
+    padding-left: 32px; }
   .intrn-box .job-type {
     font-size: 14px;
     font-weight: 700; }
   .intrn-box .job-title {
     font-size: 27px;
+    line-height: 36px;
     font-weight: 300;
-    color: #575757; }
+    color: #575757;
+    margin: 0 0 1px 0; }
   .intrn-box .meta-stats {
     font-size: 15px;
     color: #9B9B9B; }
@@ -159,19 +163,23 @@ textarea {
   margin: 10px 0; }
 
 .intrn-box {
-  padding: 20px;
+  padding: 15px;
   width: 100%;
   background-color: #fff;
   border: solid 1px #D5D5D5;
   border-radius: 4px;
   margin-bottom: 10px; }
+  .intrn-box .job-content {
+    padding-left: 32px; }
   .intrn-box .job-type {
     font-size: 14px;
     font-weight: 700; }
   .intrn-box .job-title {
     font-size: 27px;
+    line-height: 36px;
     font-weight: 300;
-    color: #575757; }
+    color: #575757;
+    margin: 0 0 1px 0; }
   .intrn-box .meta-stats {
     font-size: 15px;
     color: #9B9B9B; }
@@ -329,6 +337,9 @@ html, body {
   background-color: #F9F9F9;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+p {
+  margin: 0; }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600; }

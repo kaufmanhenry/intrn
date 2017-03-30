@@ -2,36 +2,38 @@
     <div class="pull-left job-type-circle job-type-circle-{{job.role.styleClass}} text-{{job.role.styleClass}}">
         {{job.jobType.name | limitTo:1}}
     </div>
-    <p class="text-{{job.role.styleClass}} job-type">{{job.role.name}}</p>
-    <span class="pull-right glyphicon"
-          ng-class="{'glyphicon-chevron-down': !$scope.dropdownIsOpen, 'glyphicon-chevron-up': $scope.dropdownIsOpen}"
-          ng-click="toggleDropdown()"></span>
-    <h3 class="job-title">{{job.title}} for {{job.industry}} Startup</h3>
-    <p class="meta-stats">{{job.location.name}} - Posted on {{job.createdAt | date}} by {{job.company.name}} -
-        {{applicants.length}} Applicants
-    </p>
-    <div ng-if="dropdownIsOpen" class="job-description">
-        <hr>
-        <div class="job-description-item">
-            <h4>What you’ll do with us</h4>
-            <p>{{job.canDo}}</p>
+    <div class="job-content">
+        <p class="text-{{job.role.styleClass}} job-type">{{job.role.name}}</p>
+        <span class="pull-right glyphicon"
+              ng-class="{'glyphicon-chevron-down': !$scope.dropdownIsOpen, 'glyphicon-chevron-up': $scope.dropdownIsOpen}"
+              ng-click="toggleDropdown()"></span>
+        <h3 class="job-title">{{job.title}} for {{job.industry}} Startup</h3>
+        <p class="meta-stats">{{job.location.name}} - Posted on {{job.createdAt | date}} by {{job.company.name}} -
+            {{applicants.length}} Applicants
+        </p>
+        <div ng-if="dropdownIsOpen" class="job-description">
+            <hr>
+            <div class="job-description-item">
+                <h4>What you’ll do with us</h4>
+                <p>{{job.canDo}}</p>
+            </div>
+            <div class="job-description-item">
+                <h4>What you can probably already do</h4>
+                <p>{{job.requirements}}</p>
+            </div>
+            <div class="job-description-item">
+                <h4>What you’ll get from us</h4>
+                <p>{{job.perks}}</p>
+            </div>
+            <div class="pull-right">
+                <a class="intrn-btn intrn-btn-{{job.role.styleClass}}"
+                   ng-href="{{blob.path}}">Download Challenge
+                </a>
+                <button class="intrn-btn intrn-btn-{{job.role.styleClass}}"
+                        ng-click="applyForJob()">Apply for this job
+                </button>
+            </div>
+            <div class="clearfix"></div>
         </div>
-        <div class="job-description-item">
-            <h4>What you can probably already do</h4>
-            <p>{{job.requirements}}</p>
-        </div>
-        <div class="job-description-item">
-            <h4>What you’ll get from us</h4>
-            <p>{{job.perks}}</p>
-        </div>
-        <div class="pull-right">
-            <a class="intrn-btn intrn-btn-{{job.role.styleClass}}"
-               ng-href="{{blob.path}}">Download Challenge
-            </a>
-            <button class="intrn-btn intrn-btn-{{job.role.styleClass}}"
-                    ng-click="applyForJob()">Apply for this job
-            </button>
-        </div>
-        <div class="clearfix"></div>
     </div>
 </div>
