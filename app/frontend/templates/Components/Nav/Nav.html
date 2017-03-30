@@ -4,6 +4,7 @@
         <a href="#/"><img src="imgs/logo.svg" alt="logo"></a>
         <div class="grow"></div>
         <a href ng-if="!user" ng-click="login()">Login</a>
-        <a hre ng-if="user" ng-click="logout()">Logout</a>
+        <a href="#/dashboard" ng-if="user" class="m-r-sm">Hiring Dashboard</a>
+        <a href ng-if="user" ng-click="logout()">Logout</a>
     </div>
 </nav>

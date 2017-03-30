@@ -222,6 +222,8 @@ textarea {
     .intrn-nav .intrn-nav-content a {
       color: #737373;
       font-weight: 700; }
+    .intrn-nav .intrn-nav-content .m-r-sm {
+      margin-right: 1rem; }
 
 .btn {
   font-weight: 600; }
