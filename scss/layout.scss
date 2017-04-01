@@ -66,13 +66,10 @@ textarea {
     color: $darkGray;
     font-size: 15px;
   }
-  hr {
-    height: 1px;
-    width: 100%;
-    border: none;
-    background-color: $lightGray;
-    margin: 10px 0;
-  }
+}
+
+hr {
+  border-top-color: $lightGray;
 }
 
 .intrn-box {

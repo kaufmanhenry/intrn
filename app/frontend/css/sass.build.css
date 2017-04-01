@@ -52,12 +52,8 @@ textarea {
   color: #737373;
   font-size: 15px; }
 
-.intrn-filters hr {
-  height: 1px;
-  width: 100%;
-  border: none;
-  background-color: #D5D5D5;
-  margin: 10px 0; }
+hr {
+  border-top-color: #D5D5D5; }
 
 .intrn-box {
   padding: 15px;
@@ -163,12 +159,8 @@ textarea {
   color: #737373;
   font-size: 15px; }
 
-.intrn-filters hr {
-  height: 1px;
-  width: 100%;
-  border: none;
-  background-color: #D5D5D5;
-  margin: 10px 0; }
+hr {
+  border-top-color: #D5D5D5; }
 
 .intrn-box {
   padding: 15px;
