@@ -105,6 +105,12 @@ hr {
   .applicants-table .applicant-contact-link {
     color: #44D1A5; }
 
+.m-r-sm {
+  margin-right: 1rem; }
+
+.m-l-sm {
+  margin-left: 1rem; }
+
 .intrn-container {
   width: 90%;
   max-width: 1200px;
@@ -212,6 +218,12 @@ hr {
   .applicants-table .applicant-contact-link {
     color: #44D1A5; }
 
+.m-r-sm {
+  margin-right: 1rem; }
+
+.m-l-sm {
+  margin-left: 1rem; }
+
 .intrn-nav {
   width: 100%;
   background-color: #fff;
@@ -230,8 +242,6 @@ hr {
     .intrn-nav .intrn-nav-content a {
       color: #737373;
       font-weight: 700; }
-    .intrn-nav .intrn-nav-content .m-r-sm {
-      margin-right: 1rem; }
 
 .btn {
   font-weight: 600; }

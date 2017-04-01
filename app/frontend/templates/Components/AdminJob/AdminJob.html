@@ -6,7 +6,7 @@
         <p class="text-{{job.role.styleClass}} job-type">{{job.role.name}}</p>
         <h3 class="job-title">{{job.title}}</h3>
         <p class="meta-stats">{{job.location.name}} - Posted on {{job.createdAt | date}} by {{job.company.name}} -
-            {{applicants.length}} Applicants
+            {{applicants.length || '0'}} Applicants - {{job.interested || '0'}} Interested
         </p>
         <div class="job-description">
             <hr>
@@ -39,6 +39,7 @@
             <div class="pull-left">
                 <button class="btn btn-remove btn-rounded" ng-click="removeJob()" ng-if="!expired">Remove</button>
                 <button class="btn btn-create-job btn-rounded" ng-click="relist()" ng-if="expired">Re-List</button>
+                <span class="m-l-sm gray-text">{{expired ? 'Expired' : 'Expires'}} on {{expirationTime | date}}</span>
             </div>
             <div class="pull-right">
                 <a class="btn btn-edit btn-rounded" ng-href="#/companies/{{job.company._id}}/internships/{{job._id}}"
