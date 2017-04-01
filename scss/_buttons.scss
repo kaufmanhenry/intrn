@@ -11,7 +11,7 @@
   color: $darkGray;
   border-radius: 2px;
   &:hover {
-    border-color: $darkGray;
+    border-color: $darkGray !important;
   }
   &:not(.toggled) {
     border: solid 1px $lightGray;

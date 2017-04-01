@@ -251,7 +251,7 @@ textarea {
   color: #737373;
   border-radius: 2px; }
   .btn-toggle:hover {
-    border-color: #737373; }
+    border-color: #737373 !important; }
   .btn-toggle:not(.toggled) {
     border: solid 1px #D5D5D5; }
   .btn-toggle.toggled {
