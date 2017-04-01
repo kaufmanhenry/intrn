@@ -197,3 +197,19 @@ h1, h2, h3, h4, h5, h6 {
     border-color: $growth;
   }
 }
+
+.about-link {
+  color: $black;
+  &:hover {
+    color: $gray;
+    text-decoration: none;
+  }
+  &:active {
+    text-decoration: none;
+    color: $gray;
+  }
+  &:focus {
+    text-decoration: none;
+    color: $gray;
+  }
+}

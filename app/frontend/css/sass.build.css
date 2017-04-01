@@ -484,3 +484,15 @@ h1, h2, h3, h4, h5, h6 {
   .job-type-circle.job-type-circle-growth {
     border-color: #19AAE5; }
 
+.about-link {
+  color: #4A4A4A; }
+  .about-link:hover {
+    color: #9B9B9B;
+    text-decoration: none; }
+  .about-link:active {
+    text-decoration: none;
+    color: #9B9B9B; }
+  .about-link:focus {
+    text-decoration: none;
+    color: #9B9B9B; }
+
