@@ -31,6 +31,7 @@ angular.module('intrn')
                     $scope.deleteOldPosts = function () {
                         return Actions.openConfirmModal(
                             'Are you sure you want to remove all of your old job postings?',
+                            '',
                             'danger',
                             'Remove Old Posts',
                             false,
