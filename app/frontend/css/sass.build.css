@@ -255,7 +255,9 @@ textarea {
   .btn-toggle:not(.toggled) {
     border: solid 1px #D5D5D5; }
   .btn-toggle.toggled {
-    border: solid 1px #737373; }
+    border: solid 1px #737373;
+    background-color: #737373;
+    color: #fff; }
 
 .btn-role-selector {
   margin: 0 10px 10px 0;

@@ -18,6 +18,8 @@
   }
   &.toggled {
     border: solid 1px $darkGray;
+    background-color: $darkGray;
+    color: $white;
   }
 }
 
