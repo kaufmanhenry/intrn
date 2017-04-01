@@ -31,15 +31,15 @@
             <hr>
             <div class="stat-box">
                 <div class="stat">
-                    <h1>{{selectedJob.interest}}</h1>
+                    <h1>{{selectedJob.interest || '0'}}</h1>
                     <small>Total Views</small>
                 </div>
                 <div class="stat">
-                    <h1>51</h1>
+                    <h1>{{selectedJob.interest || '0'}}</h1>
                     <small>Interested</small>
                 </div>
                 <div class="stat">
-                    <h1>{{selectedJob.applicants.length}}</h1>
+                    <h1>{{selectedJob.applicants.length || '0'}}</h1>
                     <small>Applied</small>
                 </div>
             </div>

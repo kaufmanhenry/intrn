@@ -34,6 +34,14 @@ angular.module('intrn')
                         scope: $scope
                     });
                 };
+
+                $scope.downloadChallenge = function () {
+                    $scope.job.interested++;
+
+                    Job.save($scope.job, function () {
+                        window.location.assign($scope.blob.path);
+                    });
+                }
             }]
         }
     });

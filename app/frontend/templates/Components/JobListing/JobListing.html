@@ -26,9 +26,10 @@
                 <p>{{job.perks}}</p>
             </div>
             <div class="pull-right">
-                <a class="intrn-btn intrn-btn-{{job.role.styleClass}}"
-                   ng-href="{{blob.path}}">Download Challenge
-                </a>
+                <button class="intrn-btn intrn-btn-{{job.role.styleClass}}"
+                        ng-click="downloadChallenge()"
+                        ng-href="{{blob.path}}">Download Challenge
+                </button>
                 <button class="intrn-btn intrn-btn-{{job.role.styleClass}}"
                         ng-click="applyForJob()">Apply for this job
                 </button>
