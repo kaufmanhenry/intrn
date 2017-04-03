@@ -29,9 +29,10 @@ angular.module('intrn')
                     $scope.removeJob = function () {
                         return Actions.openConfirmModal(
                             'Are you sure you want to delete this post?',
-                            null,
+                            'This cannot be undone and you will lose all of your applicants and posting challenges!',
                             'danger',
                             'Remove the post!',
+                            false,
                             function () {
                                 Job.remove({job_id: $scope.job._id}, function () {
                                     $timeout($scope.onChange());
