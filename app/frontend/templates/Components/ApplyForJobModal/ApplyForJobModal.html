@@ -119,7 +119,9 @@
     </div>
 </div>
 <div class="modal-footer text-center">
-    <button class="btn btn-default" ng-click="close()">{{applicant._id ? 'Close' : 'Maybe Later'}}</button>
-    <button class="btn btn-success" ng-click="apply(applicant)">{{applicant._id ? 'Update' : 'Apply for This Job'}}
-    </button>
+    <button class="btn btn-default btn-rounded"
+            ng-click="close()">{{applicant._id ? 'Close' : 'Maybe Later'}}</button>
+    <a class="btn btn-edit btn-rounded"
+       href
+       ng-click="apply(applicant)">{{applicant._id ? 'Update' : 'Apply for This Job'}}</a>
 </div>
