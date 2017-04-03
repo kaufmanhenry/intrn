@@ -1,13 +1,13 @@
-<div class="intrn-box">
+<div class="intrn-box" ng-class="{'dropdown-{{job.role.styleClass}}': dropdownIsOpen}">
     <div class="pull-left job-type-circle job-type-circle-{{job.role.styleClass}} text-{{job.role.styleClass}}">
         {{job.jobType.name | limitTo:1}}
     </div>
     <div class="job-content">
         <span class="pull-right glyphicon gray-text"
-              ng-class="{'glyphicon-chevron-down': !$scope.dropdownIsOpen, 'glyphicon-chevron-up': $scope.dropdownIsOpen}"
+              ng-class="{'glyphicon-chevron-down': !dropdownIsOpen, 'glyphicon-chevron-up': dropdownIsOpen}"
               ng-click="toggleDropdown()"></span>
         <p class="text-{{job.role.styleClass}} job-type">{{job.role.name}}</p>
-        <h3 class="job-title">{{job.title}} for {{job.industry}} Startup</h3>
+        <h3 class="job-title cursor-pointer" ng-click="toggleDropdown()">{{job.title}} for {{job.industry}} Startup</h3>
         <p class="meta-stats">{{job.location.name}} - Posted on {{job.createdAt | date}} by {{job.company.name}} -
             {{applicants.length || '0'}} Applicants - {{job.interested || '0'}} Interested
         </p>

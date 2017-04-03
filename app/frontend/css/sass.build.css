@@ -85,6 +85,14 @@ hr {
     font-size: 15px; }
   .intrn-box .job-description .job-description-item:not(:last-child) {
     margin-bottom: 20px; }
+  .intrn-box.dropdown-design {
+    border-color: #E7AA3A; }
+  .intrn-box.dropdown-engineering {
+    border-color: #44D1A5; }
+  .intrn-box.dropdown-business {
+    border-color: #925BC3; }
+  .intrn-box.dropdown-growth {
+    border-color: #19AAE5; }
 
 .intrn-help-items a {
   color: #737373;
@@ -110,6 +118,9 @@ hr {
 
 .m-l-sm {
   margin-left: 1rem; }
+
+.cursor-pointer {
+  cursor: pointer; }
 
 .intrn-container {
   width: 90%;
@@ -198,6 +209,14 @@ hr {
     font-size: 15px; }
   .intrn-box .job-description .job-description-item:not(:last-child) {
     margin-bottom: 20px; }
+  .intrn-box.dropdown-design {
+    border-color: #E7AA3A; }
+  .intrn-box.dropdown-engineering {
+    border-color: #44D1A5; }
+  .intrn-box.dropdown-business {
+    border-color: #925BC3; }
+  .intrn-box.dropdown-growth {
+    border-color: #19AAE5; }
 
 .intrn-help-items a {
   color: #737373;
@@ -223,6 +242,9 @@ hr {
 
 .m-l-sm {
   margin-left: 1rem; }
+
+.cursor-pointer {
+  cursor: pointer; }
 
 .intrn-nav {
   width: 100%;

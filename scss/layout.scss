@@ -113,6 +113,18 @@ hr {
       }
     }
   }
+  &.dropdown-design {
+    border-color: $design;
+  }
+  &.dropdown-engineering {
+    border-color: $engineering;
+  }
+  &.dropdown-business {
+    border-color: $businessDev;
+  }
+  &.dropdown-growth {
+    border-color: $growth;
+  }
 }
 
 .intrn-help-items {
@@ -149,4 +161,8 @@ hr {
 
 .m-l-sm {
   margin-left: 1rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
