@@ -44,7 +44,7 @@ angular.module('intrn')
                             return Actions.openConfirmModal(
                                 'You’ve successfully submitted your job posting!',
                                 null,
-                                'success',
+                                'edit',
                                 'Hurray!',
                                 true,
                                 function () {

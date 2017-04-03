@@ -45,7 +45,7 @@ angular.module('intrn')
                     return Actions.openConfirmModal(
                         'You’ve successfully submitted your application to ' + $scope.job.companyName + '!',
                         null,
-                        'success',
+                        'edit',
                         'Hurray!',
                         true,
                         function () {

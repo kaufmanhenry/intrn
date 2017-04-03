@@ -5,6 +5,6 @@
     {{text}}
 </div>
 <div class="modal-footer text-center">
-    <button class="btn btn-default" ng-click="cancel()" ng-if="!hideCancel">Cancel</button>
-    <button class="btn btn-{{modalType}}" ng-click="close()">{{actionText}}</button>
+    <button class="btn btn-default btn-rounded" ng-click="cancel()" ng-if="!hideCancel">Cancel</button>
+    <a href class="btn btn-{{modalType}} btn-rounded" ng-click="close()">{{actionText}}</a>
 </div>
