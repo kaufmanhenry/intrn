@@ -32,7 +32,7 @@ angular.module('intrn')
                         return Actions.openConfirmModal(
                             'Are you sure you want to remove all of your old job postings?',
                             '',
-                            'danger',
+                            'remove',
                             'Remove Old Posts',
                             false,
                             function () {
@@ -49,7 +49,7 @@ angular.module('intrn')
                         return Actions.openConfirmModal(
                             'Are you sure you want to remove all of your job postings?',
                             'This cannot be undone and you will lose all of your applicants and posting challenges!',
-                            'danger',
+                            'remove',
                             'Remove Everything',
                             false,
                             function () {

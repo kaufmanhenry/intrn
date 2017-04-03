@@ -30,7 +30,7 @@ angular.module('intrn')
                         return Actions.openConfirmModal(
                             'Are you sure you want to delete this post?',
                             'This cannot be undone and you will lose all of your applicants and posting challenges!',
-                            'danger',
+                            'remove',
                             'Remove the post!',
                             false,
                             function () {
