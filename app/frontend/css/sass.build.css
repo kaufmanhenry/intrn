@@ -254,6 +254,8 @@ hr {
   color: #737373;
   border-radius: 2px; }
   .btn-toggle:hover {
+    color: #737373;
+    background-color: #E0E0E0;
     border-color: #737373 !important; }
   .btn-toggle:not(.toggled) {
     border: solid 1px #D5D5D5; }
@@ -271,6 +273,9 @@ hr {
 .btn-design {
   color: #E7AA3A;
   border-color: #E7AA3A; }
+  .btn-design:hover {
+    color: #E7AA3A;
+    background-color: #f6eddc; }
   .btn-design.toggled {
     color: #fff;
     background-color: #E7AA3A; }
@@ -278,6 +283,9 @@ hr {
 .btn-engineering {
   color: #44D1A5;
   border-color: #44D1A5; }
+  .btn-engineering:hover {
+    color: #44D1A5;
+    background-color: #ddf2ec; }
   .btn-engineering.toggled {
     color: #fff;
     background-color: #44D1A5; }
@@ -285,6 +293,9 @@ hr {
 .btn-business {
   color: #925BC3;
   border-color: #925BC3; }
+  .btn-business:hover {
+    color: #925BC3;
+    background-color: #e9e1f0; }
   .btn-business.toggled {
     color: #fff;
     background-color: #925BC3; }
@@ -292,6 +303,9 @@ hr {
 .btn-growth {
   color: #19AAE5;
   border-color: #19AAE5; }
+  .btn-growth:hover {
+    color: #19AAE5;
+    background-color: #d7edf5; }
   .btn-growth.toggled {
     color: #fff;
     background-color: #19AAE5; }

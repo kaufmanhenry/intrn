@@ -11,6 +11,8 @@
   color: $darkGray;
   border-radius: 2px;
   &:hover {
+    color: $darkGray;
+    background-color: $toggleGray;
     border-color: $darkGray !important;
   }
   &:not(.toggled) {
@@ -33,6 +35,10 @@
 .btn-design {
   color: $design;
   border-color: $design;
+  &:hover {
+    color: $design;
+    background-color: $lightYellow;
+  }
   &.toggled {
     color: $white;
     background-color: $design;
@@ -42,6 +48,10 @@
 .btn-engineering {
   color: $engineering;
   border-color: $engineering;
+  &:hover {
+    color: $engineering;
+    background-color: $lightGreen;
+  }
   &.toggled {
     color: $white;
     background-color: $engineering;
@@ -51,6 +61,10 @@
 .btn-business {
   color: $businessDev;
   border-color: $businessDev;
+  &:hover {
+    color: $businessDev;
+    background-color: $lightPurple;
+  }
   &.toggled {
     color: $white;
     background-color: $businessDev;
@@ -60,6 +74,10 @@
 .btn-growth {
   color: $growth;
   border-color: $growth;
+  &:hover {
+    color: $growth;
+    background-color: $lightBlue;
+  }
   &.toggled {
     color: $white;
     background-color: $growth;
