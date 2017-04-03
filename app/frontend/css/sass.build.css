@@ -10,6 +10,7 @@
   text-align: center;
   border-radius: 4px;
   margin-bottom: 36px;
+  background-color: #D5D5D5;
   background-image: url(../imgs/hero/hero.png);
   background-size: cover;
   background-position: center;
@@ -123,6 +124,7 @@ hr {
   text-align: center;
   border-radius: 4px;
   margin-bottom: 36px;
+  background-color: #D5D5D5;
   background-image: url(../imgs/hero/hero.png);
   background-size: cover;
   background-position: center;
