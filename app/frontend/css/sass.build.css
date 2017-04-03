@@ -357,6 +357,7 @@ hr {
     color: #fff; }
 
 .btn-edit {
+  background-color: #fff;
   border: solid 1px #19AAE5;
   color: #19AAE5; }
   .btn-edit:hover, .btn-edit:focus {

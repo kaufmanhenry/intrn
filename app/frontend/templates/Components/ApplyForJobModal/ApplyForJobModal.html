@@ -1,127 +1,136 @@
-<div class="modal-header text-center">
-    <h3 class="modal-title">Application to work at {{job.companyName}}</h3>
-</div>
-<div class="modal-body">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <label class="control-label">First Name</label>
-                <input type="text"
-                       placeholder="Elon"
-                       class="form-control"
-                       ng-model="applicant.firstName">
+<form name="applyForJobModal">
+    <div class="modal-header text-center">
+        <h3 class="modal-title">Application to work at {{job.companyName}}</h3>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">First Name</label>
+                    <input type="text"
+                           placeholder="Elon"
+                           class="form-control"
+                           ng-model="applicant.firstName"
+                           required>
+                </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label class="control-label">Last Name</label>
-                <input type="text"
-                       placeholder="Musk"
-                       class="form-control"
-                       ng-model="applicant.lastName">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">Last Name</label>
+                    <input type="text"
+                           placeholder="Musk"
+                           class="form-control"
+                           ng-model="applicant.lastName"
+                           required>
+                </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label class="control-label">School</label>
-                <select ng-model="applicant.school"
-                        ng-options="school.name for school in schools track by school.name"
-                        class="form-control"></select>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">School</label>
+                    <select ng-model="applicant.school"
+                            ng-options="school.name for school in schools track by school.name"
+                            class="form-control"
+                            required></select>
+                </div>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label class="control-label">Primary Email</label>
-                <input type="email"
-                       placeholder="elon@tesla.com"
-                       class="form-control"
-                       ng-model="applicant.email">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Primary Email</label>
+                    <input type="email"
+                           placeholder="elon@tesla.com"
+                           class="form-control"
+                           ng-model="applicant.email"
+                           required>
+                </div>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label class="control-label">Phone Number</label>
-                <input type="text"
-                       placeholder="123 456 7890"
-                       class="form-control"
-                       ng-model="applicant.phone">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Phone Number</label>
+                    <input type="text"
+                           placeholder="123 456 7890"
+                           class="form-control"
+                           ng-model="applicant.phone"
+                           required>
+                </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label class="control-label">Twitter</label>
-                <input type="text"
-                       placeholder="@elonmusk"
-                       class="form-control"
-                       ng-model="applicant.twitter">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">Twitter</label>
+                    <input type="text"
+                           placeholder="@elonmusk"
+                           class="form-control"
+                           ng-model="applicant.twitter">
+                </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label class="control-label">LinkedIn</label>
-                <input type="text"
-                       placeholder="elonmusk"
-                       class="form-control"
-                       ng-model="applicant.linkedin">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">LinkedIn</label>
+                    <input type="text"
+                           placeholder="elonmusk"
+                           class="form-control"
+                           ng-model="applicant.linkedin">
+                </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label class="control-label">GitHub</label>
-                <input type="text"
-                       placeholder="@Elon_Musk"
-                       class="form-control"
-                       ng-model="applicant.github">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">GitHub</label>
+                    <input type="text"
+                           placeholder="@Elon_Musk"
+                           class="form-control"
+                           ng-model="applicant.github">
+                </div>
             </div>
-        </div>
-        <div class="col-md-12">
-            <hr>
-        </div>
-        <div class="col-md-6" ng-if="!loadedChallenge">
-            <h4>Upload Challenge</h4>
-            <hr>
-            <intrn-file-picker-component intrn-on-select="onSelectChallenge(file)"
-                                         intrn-on-load="onLoadChallenge(uri)"></intrn-file-picker-component>
-            <span ng-if="challengeFile.name">{{challengeFile.name}}</span>
-        </div>
-        <div class="col-md-6" ng-if="!loadedResume">
-            <h4>Upload Résumé</h4>
-            <hr>
-            <intrn-file-picker-component intrn-on-select="onSelectResume(file)"
-                                         intrn-on-load="onLoadResume(uri)"></intrn-file-picker-component>
-            <span ng-if="resumeFile.name">{{resumeFile.name}}</span>
-        </div>
-        <div class="col-md-6" ng-if="loadedChallenge">
-            <h4>Uploaded Challenge</h4>
-            <hr>
-            <a ng-href="{{loadedChallenge.path}}">{{loadedChallenge.file.filename}}</a>
-        </div>
-        <div class="col-md-6" ng-if="loadedResume">
-            <h4>Uploaded Résumé</h4>
-            <hr>
-            <a ng-href="{{loadedResume.path}}">{{loadedResume.file.filename}}</a>
-        </div>
-        <div class="col-md-12">
-            <br>
-            <div class="form-group">
-                <label class="control-label">Say something about yourself!</label>
-                <textarea rows="5"
-                          class="form-control"
-                          ng-model="applicant.bio"
-                          placeholder="I love to make awesome stuff 24/7 and I’m on the rocket team."></textarea>
+            <div class="col-md-12">
+                <hr>
             </div>
-        </div>
-        <div class="col-md-12">
-            <small class="text-muted">By clicking “Apply” you are confirming that you have read and accepted our <a
-                    href="#/privacy">Privacy Policy</a> and <a href="#">Terms of Service</a>.
-            </small>
+            <div class="col-md-6" ng-if="!loadedChallenge">
+                <h4>Upload Challenge</h4>
+                <hr>
+                <intrn-file-picker-component intrn-on-select="onSelectChallenge(file)"
+                                             intrn-on-load="onLoadChallenge(uri)"></intrn-file-picker-component>
+                <span ng-if="challengeFile.name">{{challengeFile.name}}</span>
+            </div>
+            <div class="col-md-6" ng-if="!loadedResume">
+                <h4>Upload Résumé</h4>
+                <hr>
+                <intrn-file-picker-component intrn-on-select="onSelectResume(file)"
+                                             intrn-on-load="onLoadResume(uri)"></intrn-file-picker-component>
+                <span ng-if="resumeFile.name">{{resumeFile.name}}</span>
+            </div>
+            <div class="col-md-6" ng-if="loadedChallenge">
+                <h4>Uploaded Challenge</h4>
+                <hr>
+                <a ng-href="{{loadedChallenge.path}}">{{loadedChallenge.file.filename}}</a>
+            </div>
+            <div class="col-md-6" ng-if="loadedResume">
+                <h4>Uploaded Résumé</h4>
+                <hr>
+                <a ng-href="{{loadedResume.path}}">{{loadedResume.file.filename}}</a>
+            </div>
+            <div class="col-md-12">
+                <br>
+                <div class="form-group">
+                    <label class="control-label">Say something about yourself!</label>
+                    <textarea rows="5"
+                              class="form-control"
+                              ng-model="applicant.bio"
+                              placeholder="I love to make awesome stuff 24/7 and I’m on the rocket team."></textarea>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <small class="text-muted">By clicking “Apply” you are confirming that you have read and accepted our <a
+                        href="#/privacy">Privacy Policy</a> and <a href="#">Terms of Service</a>.
+                </small>
+            </div>
         </div>
     </div>
-</div>
-<div class="modal-footer text-center">
-    <button class="btn btn-default btn-rounded"
-            ng-click="close()">{{applicant._id ? 'Close' : 'Maybe Later'}}</button>
-    <a class="btn btn-edit btn-rounded"
-       href
-       ng-click="apply(applicant)">{{applicant._id ? 'Update' : 'Apply for This Job'}}</a>
-</div>
+    <div class="modal-footer text-center">
+        <button class="btn btn-default btn-rounded"
+                ng-click="close()">{{applicant._id ? 'Close' : 'Maybe Later'}}
+        </button>
+        <button class="btn btn-edit btn-rounded"
+                ng-disabled="applyForJobModal.$invalid || !(challengeFile || loadedChallenge) || !(resumeFile || loadedResume)"
+                ng-click="apply(applicant)">{{applicant._id ? 'Update' : 'Apply for This Job'}}
+        </button>
+    </div>
+</form>
