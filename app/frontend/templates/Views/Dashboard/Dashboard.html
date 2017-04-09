@@ -30,6 +30,7 @@
                             ng-click="createCompany(newCompany)"
                             ng-disabled="newCompanyForm.$invalid">Create Company
                     </button>
+                    <p ng-if="errorMessage" class="text-danger text-center m-t-sm font-semi-bold">{{errorMessage}}</p>
                 </div>
             </form>
         </div>

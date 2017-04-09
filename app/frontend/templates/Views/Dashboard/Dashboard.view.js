@@ -26,6 +26,8 @@ angular.module('intrn')
                             newCompany.name = '';
                             newCompany.accessCode = '';
                             $scope.load();
+                        }, function () {
+                            $scope.errorMessage = 'Invalid access code!'
                         });
                     };
                 }]
