@@ -46,5 +46,34 @@ module.exports = function (app) {
         });
     });
 
+    //Endpoint to add an interested for a job
+    router.post('/:job/addInterested', function (req, res) {
+        async.waterfall([
+            function (callback) {
+                //Find a job
+                Model.findOne({
+                    _id: req.params.job
+                }, callback);
+            },
+            function (job, callback) {
+                //If no job exists, return with an error
+                if (!job) return callback({status: 404, message: 'No job found'});
+
+                //Update the job interests
+                job.interested++;
+
+                //Save the job
+                return job.save(callback)
+            }
+        ], function (err, result) {
+            if (err) return res.status(err.status || 400).send({
+                status: err.status || 400,
+                message: err.message || 'Bad request'
+            });
+
+            return res.send(result);
+        });
+    });
+
     return router;
 };

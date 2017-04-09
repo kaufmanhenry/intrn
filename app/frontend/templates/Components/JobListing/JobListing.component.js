@@ -38,9 +38,9 @@ angular.module('intrn')
                 $scope.downloadChallenge = function () {
                     $scope.job.interested++;
 
-                    Job.save($scope.job, function () {
+                    Job.addInterested({job_id: $scope.job._id}, {}, function () {
                         window.location.assign($scope.blob.path);
-                    });
+                    }, Error.handle);
                 }
             }]
         }

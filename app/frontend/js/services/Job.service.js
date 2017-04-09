@@ -11,6 +11,10 @@ angular.module('intrn')
             addInterest: {
                 method: 'POST',
                 url: API_BASE + 'jobs/:job_id/addInterest'
+            },
+            addInterested: {
+                method: 'POST',
+                url: API_BASE + 'jobs/:job_id/addInterested'
             }
         });
     }]);
