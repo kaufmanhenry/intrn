@@ -13,6 +13,9 @@ angular.module('intrn')
             .when('/privacy', {
                 template: '<intrn-privacy-view></intrn-privacy-view>'
             })
+            .when('/terms', {
+                template: '<intrn-terms-view></intrn-terms-view>'
+            })
             .when('/about', {
                 template: '<intrn-about-view></intrn-about-view>'
             })
