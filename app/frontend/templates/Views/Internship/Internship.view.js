@@ -7,8 +7,8 @@ angular.module('intrn')
     .directive('intrnInternshipView', function () {
         return {
             templateUrl: 'templates/Views/Internship/Internship.html',
-            controller: ['$scope', '$q', '$routeParams', '$location', 'Auth', 'Actions', 'Job', 'Blob', 'Enums', 'Error',
-                function ($scope, $q, $routeParams, $location, Auth, Actions, Job, Blob, Enums, Error) {
+            controller: ['$scope', '$q', '$routeParams', '$location', '$uibModal', 'Auth', 'Actions', 'Job', 'Blob', 'Enums', 'Error',
+                function ($scope, $q, $routeParams, $location, $uibModal, Auth, Actions, Job, Blob, Enums, Error) {
                     $scope.load = function () {
                         var promises = [];
 
@@ -41,17 +41,19 @@ angular.module('intrn')
                     $scope.saveJob = function () {
                         $scope.internship.company = $routeParams.company_id;
                         if ($scope.creatingNew) {
-                            return Actions.openConfirmModal(
-                                'You’ve successfully submitted your job posting!',
-                                null,
-                                'edit',
-                                'Hurray!',
-                                true,
-                                function () {
-                                    return saveInternship();
-                                }, function () {
-                                    return saveInternship();
-                                });
+                            return $uibModal.open({
+                                animation: true,
+                                template: '<intrn-internship-confirm-modal intrn-cancel="cancel()" intrn-close="close()"></intrn-internship-confirm-modal>',
+                                controller: ['$uibModalInstance', '$scope', function ($uibModalInstance, scope) {
+                                    scope.close = function () {
+                                        $uibModalInstance.close();
+                                        saveInternship();
+                                    };
+                                    scope.cancel = function () {
+                                        $uibModalInstance.dismiss();
+                                    };
+                                }]
+                            });
                         }
                     };
 
