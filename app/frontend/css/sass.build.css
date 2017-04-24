@@ -20,6 +20,8 @@
     background-image: url(../imgs/hero/about_hero.png) !important; }
   .intrnBanner.hiringBanner {
     background-image: url(../imgs/hero/hiring_hero.png) !important; }
+  .intrnBanner.helpBanner {
+    background-image: url(../imgs/hero/help_hero.png) !important; }
   .intrnBanner h1 {
     font-size: 40px;
     color: #4A4A4A;
@@ -125,6 +127,18 @@ hr {
 
 .cursor-pointer {
   cursor: pointer; }
+
+.tooltip-arrow {
+  display: none; }
+
+.tooltip-inner {
+  font-family: 'Assistant', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  width: 200px;
+  padding: 10px;
+  background-color: #575757;
+  box-shadow: 0 0 4px #575757; }
 
 .intrn-container {
   width: 90%;
@@ -148,6 +162,8 @@ hr {
     background-image: url(../imgs/hero/about_hero.png) !important; }
   .intrnBanner.hiringBanner {
     background-image: url(../imgs/hero/hiring_hero.png) !important; }
+  .intrnBanner.helpBanner {
+    background-image: url(../imgs/hero/help_hero.png) !important; }
   .intrnBanner h1 {
     font-size: 40px;
     color: #4A4A4A;
@@ -253,6 +269,18 @@ hr {
 
 .cursor-pointer {
   cursor: pointer; }
+
+.tooltip-arrow {
+  display: none; }
+
+.tooltip-inner {
+  font-family: 'Assistant', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  width: 200px;
+  padding: 10px;
+  background-color: #575757;
+  box-shadow: 0 0 4px #575757; }
 
 .intrn-nav {
   width: 100%;

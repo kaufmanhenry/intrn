@@ -174,3 +174,17 @@ hr {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.tooltip-arrow {
+  display: none;
+}
+
+.tooltip-inner {
+  font-family: 'Assistant', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  width: 200px;
+  padding: 10px;
+  background-color: $almostBlack;
+  box-shadow: 0 0 4px $almostBlack;
+}
