@@ -148,6 +148,24 @@
                         ng-disabled="internshipForm.$invalid || !internship.location || !internship.role || !internship.jobType || !(file || blob)"
                         ng-click="saveJob()">{{internship._id ? 'Update' : 'Ready to Publish'}} this Job
                 </button>
+                <p class="gray-text m-t-sm">You can only classify someone as an intern if each of the below criteria is
+                    met. If any one or more of the below criteria cannot be met, then the law requires that you treat
+                    the person as an employee and pay him/her minimum wage and overtime as you would for any other
+                    non-exempt employee. Below are the criteria that must be met for the intern designation:</p>
+                <ol class="gray-text">
+                    <li>The internship, even though it includes actual operation of the company’s business, is similar
+                        to training that would be given in a vocational school;
+                    </li>
+                    <li>The internship is for the benefit of the intern;</li>
+                    <li>The intern does not displace regular employees and works under close observation;</li>
+                    <li>The company derives no immediate advantage from the activities of the intern and on occasion the
+                        company’s operations may actually be impeded;
+                    </li>
+                    <li>The intern is not necessarily entitled to a job at the completion of the internship; and</li>
+                    <li>The company and the intern understand that the intern is not entitled to wages for the time
+                        spent in the internship.
+                    </li>
+                </ol>
             </div>
         </div>
     </div>

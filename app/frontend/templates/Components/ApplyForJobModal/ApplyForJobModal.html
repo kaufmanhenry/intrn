@@ -8,51 +8,68 @@
                 <div class="form-group">
                     <label class="control-label">First Name</label>
                     <input type="text"
+                           name="firstName"
                            placeholder="Elon"
                            class="form-control"
                            ng-model="applicant.firstName"
                            required>
+                    <p ng-if="applyForJobModal.firstName.$invalid && applyForJobModal.firstName.$dirty"
+                       class="text-danger">A first name is required.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label class="control-label">Last Name</label>
                     <input type="text"
+                           name="lastName"
                            placeholder="Musk"
                            class="form-control"
                            ng-model="applicant.lastName"
                            required>
+                    <p ng-if="applyForJobModal.lastName.$invalid && applyForJobModal.lastName.$dirty"
+                       class="text-danger">A last name is required.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label class="control-label">School</label>
                     <select ng-model="applicant.school"
+                            name="school"
                             ng-options="school.name for school in schools track by school.name"
                             class="form-control"
                             required></select>
+                    <p ng-if="applyForJobModal.school.$invalid && applyForJobModal.school.$dirty"
+                       class="text-danger">A school is required.</p>
                 </div>
             </div>
+            <div class="clearfix"></div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="control-label">Primary Email</label>
                     <input type="email"
+                           name="email"
                            placeholder="elon@tesla.com"
                            class="form-control"
                            ng-model="applicant.email"
                            required>
+                    <p ng-if="applyForJobModal.email.$invalid && applyForJobModal.email.$dirty"
+                       class="text-danger">An email is required.</p>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="control-label">Phone Number</label>
-                    <input type="text"
+                    <input type="tel"
+                           name="phone"
                            placeholder="123 456 7890"
                            class="form-control"
                            ng-model="applicant.phone"
                            required>
+                    <p ng-if="applyForJobModal.phone.$invalid && applyForJobModal.phone.$dirty"
+                       class="text-danger">A phone is required.</p>
                 </div>
             </div>
+            <div class="clearfix"></div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label class="control-label">Twitter</label>
@@ -80,6 +97,7 @@
                            ng-model="applicant.github">
                 </div>
             </div>
+            <div class="clearfix"></div>
             <div class="col-md-12">
                 <hr>
             </div>
