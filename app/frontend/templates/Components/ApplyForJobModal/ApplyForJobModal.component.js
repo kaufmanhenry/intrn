@@ -21,6 +21,7 @@ angular.module('intrn')
                 ]);
 
                 if ($scope.applicantId) {
+                    $scope.isAdmin = true;
                     promises.concat([
                         Applicant.get({applicant_id: $scope.applicantId}, function (a) {
                             $scope.applicant = a;
